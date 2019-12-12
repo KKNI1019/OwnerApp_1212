@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.ConfirmReportAddPage"
+             xmlns:control="clr-namespace:HorizontalList;assembly=HorizontalList"
+             xmlns:local="clr-namespace:owner"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F8F8F8"
+                     VerticalOptions="FillAndExpand">
+            <StackLayout.Margin>
+                <OnPlatform 
+                    x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HorizontalOptions="FillAndExpand" 
+                BackgroundColor="White" 
+                HeightRequest="50"
+                Margin="0,0,0,-6">
+                <ImageButton 
+                    BackgroundColor="Transparent" 
+                    Source="back1"
+                    Padding="10" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds=".01,.5" 
+                    Clicked="imgBack_Clicked"/>
+                <Label 
+                    Text="申告内容入力" 
+                    FontSize="16"
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutBounds=".5,.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <ImageButton 
+                    BackgroundColor="Transparent"
+                    Source="imgAdd" 
+                    Padding="10"
+                    AbsoluteLayout.LayoutFlags="PositionProportional" 
+                    AbsoluteLayout.LayoutBounds=".99,.5"
+                    Clicked="imgAdd_Clicked"/>
+            </AbsoluteLayout>
+            <StackLayout HorizontalOptions="FillAndExpand"
+                         Orientation="Vertical"
+                         VerticalOptions="FillAndExpand"
+                         Padding="0,0,0,10">
+                <StackLayout MinimumHeightRequest="50"
+                             Orientation="Vertical">
+                    <control:HorizontalList ListOrientation="Horizontal"
+                                            VerticalOptions="End"
+                                            x:Name="date_list">
+                        <control:HorizontalList.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Padding="30, 0" VerticalOptions="Center">
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnItemLayout_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <Label Text="{Binding year}"
+                                           HorizontalOptions="Center"
+                                           TextColor="Black"
+                                           FontSize="10"
+                                           x:Name="lbl_year">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnChildItemLayout_Tapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <Label Text="{Binding month}"
+                                            HorizontalOptions="Center"
+                                            TextColor="Black"
+                                            FontSize="12"
+                                            Margin="-3, -3, 0, 0"
+                                            x:Name="lbl_month">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnChildItemLayout_Tapped"/>
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                    <StackLayout HeightRequest="2"
+                                        Margin="-20, 0"
+                                        WidthRequest="50"
+                                        x:Name="lay_highlight"/>
+                                </StackLayout>
+                            </DataTemplate>
+                        </control:HorizontalList.ItemTemplate>
+                    </control:HorizontalList>
+                </StackLayout>
+                <StackLayout>
+                    <ScrollView>
+                        <StackLayout x:Name="stack_items"/>
+                    </ScrollView>
+                </StackLayout>
+                <ImageButton x:Name="imgBtnSave"
+                             Source="save.png"
+                             Clicked="ImgBtnSave_Clicked"
+                             BackgroundColor="Transparent"
+                             Margin="0,5,0,0"
+                             VerticalOptions="EndAndExpand"
+                             HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

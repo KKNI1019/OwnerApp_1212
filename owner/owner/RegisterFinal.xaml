@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.RegisterFinal"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White">
+                <ImageButton
+                    Source="back1.png"
+                    x:Name="back_btn"
+                    Clicked="Back_btn_Clicked"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    VerticalOptions="CenterAndExpand"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0,0.5"/>
+            </AbsoluteLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0*" />
+                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="22*" />
+                    <RowDefinition Height="14*" />
+                    <RowDefinition Height="14*" />
+                    <RowDefinition Height="5*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout
+				Grid.Row="1"
+				Grid.Column="0">
+                    <Image
+					Source="logo.png"
+					HorizontalOptions="CenterAndExpand">
+                    </Image>
+                </StackLayout>
+                <Label
+				    Grid.Row="2"
+				    Grid.Column="0"
+				    Text="プッシュ通知を許可すると、&#10;お金と時間を節約できます。"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+				    TextColor="Black"
+				    HorizontalOptions="CenterAndExpand"
+				    VerticalOptions="Center"/>
+                <AbsoluteLayout
+				    Grid.Row="4"
+				    Grid.Column="0">
+                    <ImageButton
+					    Source="btn_notify.png"
+					    AbsoluteLayout.LayoutFlags="PositionProportional"
+					    AbsoluteLayout.LayoutBounds="0.5,0.5"
+					    BackgroundColor="Transparent"
+					    x:Name="step_final_next_btn"
+                        Clicked="Step_final_next_btn_Clicked">
+                    </ImageButton>
+                </AbsoluteLayout>
+                <AbsoluteLayout
+                    Grid.Row="5"
+				    Grid.Column="0">
+                    <Label
+                        Text="あとで登録する"
+                        FontSize="Default"
+                        TextColor="#FF9D00"
+                        TextDecorations="Underline"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        AbsoluteLayout.LayoutBounds="0.5,0.3"
+                        x:Name="lbl_register_final_later"/>
+                </AbsoluteLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

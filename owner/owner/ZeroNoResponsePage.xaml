@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="owner.ZeroNoResponsePage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="LightGray">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                                iOS="0,20,0,0"
+                                Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                    HeightRequest="40"
+                    Padding="15, 5"
+                    BackgroundColor="White">
+                <ImageButton Source="back1.png"
+                             x:Name="back_btn"
+                             Clicked="Back_btn_Clicked"
+                             BackgroundColor="Transparent"
+                             AbsoluteLayout.LayoutFlags="PositionProportional"
+                             AbsoluteLayout.LayoutBounds="0,0.5"/>
+                <Label x:Name="lbl_title"
+                       FontSize="16"
+                       TextColor="Black"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                       AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+            <Grid VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="7*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+                <Frame BorderColor="DarkGray"
+                       CornerRadius="5"
+                       Margin="10"
+                       VerticalOptions="FillAndExpand"
+                       BackgroundColor="White"
+                       HasShadow="True">
+                    <Label Text="大変申し訳ありませんが、お客様の所有している物件は、現在対応しておりません。"
+                           Margin="20,0"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"/>
+                </Frame>
+                <StackLayout Grid.Row="1">
+                    <ImageButton BackgroundColor="Transparent"
+                                 Source="btn_cancel.png"
+                                 Clicked="Back_btn_Clicked"/>
+                    <ImageButton BackgroundColor="Transparent"
+                                 Source="btn_upgrade.png"
+                                 x:Name="btn_upgrade"
+                                 Clicked="Btn_upgrade_Clicked"/>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

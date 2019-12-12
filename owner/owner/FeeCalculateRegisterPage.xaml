@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.FeeCalculateRegisterPage"
+             xmlns:local="clr-namespace:owner"
+             BackgroundColor="#F8F8F8"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout
+                VerticalOptions="FillAndExpand">
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness"
+                                iOS="0,20,0,0"
+                                Android="0,0,0,0"/>
+                </StackLayout.Margin>
+                <AbsoluteLayout
+                    HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="White" 
+                    HeightRequest="50">
+                    <ImageButton 
+                        BackgroundColor="Transparent" 
+                        Source="back1" 
+                        Padding="10" 
+                        AbsoluteLayout.LayoutFlags="PositionProportional" 
+                        AbsoluteLayout.LayoutBounds=".01,.5" 
+                        Clicked="imgBack_Clicked"/>
+                    <Label 
+                        Text="簡単収支計算" 
+                        TextColor="Black"
+                        FontSize="Medium"
+                        AbsoluteLayout.LayoutBounds=".5,.5"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <ImageButton 
+                        BackgroundColor="Transparent" 
+                        Source="icon_menu" Padding="10" 
+                        Clicked="menuBtn_clicked" 
+                        AbsoluteLayout.LayoutFlags="PositionProportional" 
+                        AbsoluteLayout.LayoutBounds=".99,.5"/>
+                </AbsoluteLayout>
+                <ScrollView>
+                    <StackLayout
+                    Orientation="Vertical"
+                    Padding="30"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                        <Label
+                        Text="今の収支を入力してください。"
+                            x:Name="lbl_intro"
+                        TextColor="Black"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+                        <Label
+                        Text="※おおよその金額でも結構です"
+                        FontSize="12"
+                        TextColor="#A0A0A0"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame
+						        Grid.Column="0"
+						        BorderColor="#F8F8F8"
+                                BackgroundColor="White"
+						        Padding="5">
+                                    <StackLayout>
+                                        <Label
+								        Text="物件名"
+                                        TextColor="#A0A0A0"
+                                        FontSize="10"
+								        HorizontalOptions="StartAndExpand"/>
+                                        <local:BorderlessEditor
+								        HorizontalOptions="Fill"
+                                        Text=""
+								        TextColor="Black"
+								        AutoSize="TextChanges"
+								        FlowDirection="RightToLeft"
+								        x:Name="building_name"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame
+						        Grid.Column="0"
+						        BorderColor="#F8F8F8"
+                                BackgroundColor="White"
+						        Padding="5">
+                                    <StackLayout>
+                                        <Label
+								        Text="家賃"
+                                        TextColor="#A0A0A0"
+                                        FontSize="10"
+								        HorizontalOptions="StartAndExpand"/>
+                                        <local:BorderlessEditor
+								        HorizontalOptions="Fill"
+                                        Text=""
+								        TextColor="#327BC4"
+								        MaxLength="10"
+								        AutoSize="TextChanges"
+								        Keyboard="Numeric"
+								        FlowDirection="RightToLeft"
+                                            Margin="0, -8, 0, 0"
+								        x:Name="rental_income"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Label
+						        Grid.Column="1"
+						        Text="円"
+						        TextColor="Black"
+						        HorizontalOptions="Fill"
+						        VerticalOptions="End"/>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame
+						        Grid.Column="0"
+						        BorderColor="#F8F8F8"
+                                BackgroundColor="White"
+						        Padding="5">
+                                    <StackLayout>
+                                        <Label
+								        Text="管理費"
+                                        FontSize="10"
+                                        TextColor="#A0A0A0"
+								        HorizontalOptions="StartAndExpand"/>
+                                        <local:BorderlessEditor
+								        HorizontalOptions="Fill"
+                                        Text=""
+								        TextColor="#EA4343"
+								        MaxLength="10"
+								        AutoSize="TextChanges"
+								        Keyboard="Numeric"
+								        FlowDirection="RightToLeft"
+								        x:Name="admin_expenses"
+                                        Margin="0, -8, 0, 0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Label
+						        Grid.Column="1"
+						        Text="円"
+						        TextColor="Black"
+						        HorizontalOptions="Fill"
+						        VerticalOptions="End"/>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame
+						        Grid.Column="0"
+						        BorderColor="#F8F8F8"
+                                BackgroundColor="White"
+						        Padding="5">
+                                    <StackLayout>
+                                        <Label
+								        Text="修繕積立金"
+                                        FontSize="10"
+                                        TextColor="#A0A0A0"
+								        HorizontalOptions="StartAndExpand"/>
+                                        <local:BorderlessEditor
+								        HorizontalOptions="Fill"
+                                        Text=""
+								        TextColor="#EA4343"
+								        MaxLength="10"
+								        AutoSize="TextChanges"
+								        Keyboard="Numeric"
+								        FlowDirection="RightToLeft"
+								        x:Name="repair_reserve"
+                                        Margin="0, -8, 0, 0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Label
+						        Grid.Column="1"
+						        Text="円"
+						        TextColor="Black"
+						        HorizontalOptions="Fill"
+						        VerticalOptions="End"/>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame
+						        Grid.Column="0"
+						        BorderColor="#F8F8F8"
+                                BackgroundColor="White"
+						        Padding="5">
+                                    <StackLayout>
+                                        <Label
+								        Text="代行手数料"
+                                        FontSize="10"
+                                        TextColor="#A0A0A0"
+								        HorizontalOptions="StartAndExpand"/>
+                                        <local:BorderlessEditor
+								        HorizontalOptions="Fill"
+                                        Text=""
+								        TextColor="#EA4343"
+								        MaxLength="10"
+								        AutoSize="TextChanges"
+								        Keyboard="Numeric"
+								        FlowDirection="RightToLeft"
+								        x:Name="agency_fee"
+                                        Margin="0, -8, 0, 0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Label
+						        Grid.Column="1"
+                                Text="円"
+						        TextColor="Black"
+						        HorizontalOptions="Fill"
+						        VerticalOptions="End"/>
+                            </Grid>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="90*"/>
+                                    <ColumnDefinition Width="10*"/>
+                                </Grid.ColumnDefinitions>
+                                <Frame
+						        Grid.Column="0"
+						        BorderColor="#F8F8F8"
+                                BackgroundColor="White"
+						        Padding="5">
+                                    <StackLayout>
+                                        <Label
+								        Text="固定資産税"
+                                        FontSize="10"
+                                        TextColor="#A0A0A0"
+								        HorizontalOptions="StartAndExpand"/>
+                                        <local:BorderlessEditor
+								        HorizontalOptions="Fill"
+								        TextColor="#EA4343"
+                                        Text=""
+								        MaxLength="10"
+								        AutoSize="TextChanges"
+								        Keyboard="Numeric"
+								        FlowDirection="RightToLeft"
+								        x:Name="property_tax"
+                                        IsTabStop="False"
+                                        Margin="0, -8, 0, 0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Label
+						        Grid.Column="1"
+						        Text="円"
+						        TextColor="Black"
+						        HorizontalOptions="Fill"
+						        VerticalOptions="End"/>
+                            </Grid>
+                        </StackLayout>
+                        <AbsoluteLayout Margin="0,20,0,0">
+                            <ImageButton
+					        Source="btn_edit.png"
+					        AbsoluteLayout.LayoutFlags="PositionProportional"
+					        AbsoluteLayout.LayoutBounds="0.5,0.5"
+					        BackgroundColor="Transparent"
+					        x:Name="update_btn"
+                            Clicked="Update_btn_Clicked">
+                            </ImageButton>
+                        </AbsoluteLayout>
+                    </StackLayout>
+                </ScrollView>
+
+            </StackLayout>
+            <ActivityIndicator x:Name="loadingbar" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Center" 
+                               Color="DeepPink"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

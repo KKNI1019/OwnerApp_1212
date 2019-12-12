@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.RegisterComplete"
+             xmlns:local="clr-namespace:owner"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             BackgroundColor="#F8F8F8">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness"
+                                iOS="0,20,0,0"
+                                Android="0,0,0,0"/>
+                </StackLayout.Margin>
+                <AbsoluteLayout
+                    HeightRequest="40"
+                    Padding="15, 5"
+                    BackgroundColor="White">
+                    <ImageButton
+                        Source="back1.png"
+                        x:Name="back_btn"
+                        Clicked="Back_btn_Clicked"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Start"
+                        VerticalOptions="CenterAndExpand"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+					    AbsoluteLayout.LayoutBounds="0,0.5"/>
+                    <Image
+                        Source="logo_full_land.png"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+					    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+                </AbsoluteLayout>
+                <StackLayout>
+                    <Label
+                        Text="あなたの快適LIFEまであと少しです！"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        TextColor="Black"
+                        Margin="0,10,0,6" />
+                    <StackLayout Padding="40,0">
+                        <Label Text="メールアドレス" FontSize="10"/>
+                        <Frame
+                            BorderColor="#A0A0A0"
+                            BackgroundColor="White"
+						    Padding="5">
+                            <local:BorderlessEntry
+							    HorizontalOptions="Fill"
+							    TextColor="Black"
+                                Keyboard="Email"
+							    x:Name="email"
+                                Text=""/>
+                        </Frame>
+                        <Label Text="パスワード" FontSize="10"/>
+                        <Frame
+                            BorderColor="#A0A0A0"
+                            BackgroundColor="White"
+						    Padding="5">
+
+                            <local:BorderlessEntry
+							    HorizontalOptions="Fill"
+                                IsPassword="True"
+							    TextColor="Black"
+							    x:Name="password"
+                                Text=""/>
+                        </Frame>
+                        <Label Text="パスワード再入力" FontSize="10"/>
+                        <Frame
+                            BorderColor="#A0A0A0"
+                            BackgroundColor="White"
+						    Padding="5">
+
+                            <local:BorderlessEntry
+							    HorizontalOptions="Fill"
+                                IsPassword="True"
+							    TextColor="Black"
+							    x:Name="password_confrim"
+                                Text=""/>
+                        </Frame>
+
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,4,0,4">
+                            <ImageButton x:Name="imgBtn_unchecked" VerticalOptions="Center" Source="unchecked" BackgroundColor="Transparent"  Clicked="UncheckedBtn_Clicked"/>
+                            <ImageButton x:Name="imgBtn_checked"  VerticalOptions="Center" Source="checked" BackgroundColor="Transparent" IsVisible="False" Clicked="CheckedBtn_Clicked"/>
+                            <Label 
+                                Margin="0,0,-5,0"
+                                VerticalOptions="Center"
+                                x:Name="label_rule">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="利用規約" TextColor="#F8B500" TextDecorations="Underline"/>
+                                        <Span Text="に同意する" TextColor="Black"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                        <ImageButton BackgroundColor="Transparent"
+                             Source="btn_register"
+                             x:Name="imgBtn_Login"
+                             Clicked="ImgBtn_Login_Clicked"/>
+                        <Label Text="SNSでログイン" FontSize="10"/>
+                        <ImageButton BackgroundColor="Transparent"
+                             Source="facebook.png"
+                             x:Name="imgBtn_facebookLogin"
+                             Clicked="ImgBtn_facebookLogin_Clicked"/>
+                        <ImageButton BackgroundColor="Transparent"
+                             Source="twitter.png"
+                             x:Name="imgBtn_twitterLogin"
+                             Margin="0,-15,0,-15"
+                             Clicked="ImgBtn_twitterLogin_Clicked"/>
+                        <ImageButton BackgroundColor="Transparent"
+                             Source="line.png"
+                             x:Name="imgBtn_lineLogin"
+                             Clicked="ImgBtn_lineLogin_Clicked"/>
+                    </StackLayout>
+
+
+                </StackLayout>
+            </StackLayout>
+            <ActivityIndicator x:Name="loadingbar" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Center" 
+                               Color="DeepPink"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

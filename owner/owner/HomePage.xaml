@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:HorizontalList;assembly=HorizontalList"
+             x:Class="owner.HomePage"
+             BackgroundColor="#F8F8F8"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout HorizontalOptions="FillAndExpand" 
+                            BackgroundColor="White" 
+                            HeightRequest="50">
+                <Image Source="logo_full_land.png" 
+                       AbsoluteLayout.LayoutBounds=".5,.5"
+                       HeightRequest="35" 
+                       AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <ImageButton BackgroundColor="Transparent" 
+                             Source="icon_menu" Padding="10" 
+                             Clicked="menuBtn_clicked" 
+                             AbsoluteLayout.LayoutFlags="PositionProportional" 
+                             AbsoluteLayout.LayoutBounds=".99,.5"/>
+            </AbsoluteLayout>
+            <control:HorizontalList ListOrientation="Horizontal"
+                                    VerticalOptions="Start"
+                                    HeightRequest="50"
+                                    Margin="0,0,0,5"
+                                    x:Name="date_list">
+                <control:HorizontalList.ItemTemplate>
+                    <DataTemplate>
+                        <!--<ViewCell>-->
+                        <StackLayout Padding="30, 0"
+                                     VerticalOptions="FillAndExpand">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnItemLayout_Tapped"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label Text="{Binding year}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Start"
+                                   TextColor="Black"
+                                   FontSize="10"
+                                   x:Name="lbl_year">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnChildItemLayout_Tapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <Label Text="{Binding month}"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="StartAndExpand"
+                                   TextColor="Black"
+                                   FontSize="12"
+                                   Margin="-3, -3, 0, 0"
+                                   x:Name="lbl_month">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="OnChildItemLayout_Tapped"/>
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <StackLayout HeightRequest="2"
+                                         Margin="-30, -15, -30, 0"
+                                         WidthRequest="50"
+                                         x:Name="lay_highlight"/>
+                        </StackLayout>
+                        <!--</ViewCell>-->
+                    </DataTemplate>
+                </control:HorizontalList.ItemTemplate>
+            </control:HorizontalList>
+            <StackLayout Padding="20,0"
+                         HorizontalOptions="FillAndExpand"
+                         VerticalOptions="StartAndExpand">
+                <Frame OutlineColor="#A0A0A0"
+                       BorderColor="#A0A0A0"
+                       Padding="-6,5"
+                       CornerRadius="5">
+                    <StackLayout>
+                        <AbsoluteLayout Margin="20,0">
+                            <Label AbsoluteLayout.LayoutFlags="PositionProportional" 
+                                AbsoluteLayout.LayoutBounds=".01,.5"
+                                TextColor="Black"
+                                FontSize="12"
+                                x:Name="lbl_balance"/>
+                            <StackLayout
+                                Orientation="Horizontal"
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                AbsoluteLayout.LayoutBounds=".99,.5">
+                                <Label
+                                    x:Name="lbl_current_balance"
+                                    FontAttributes="Bold"/>
+                                <Label
+                                    Text="円"
+                                    VerticalTextAlignment="End"
+                                    FontSize="13"
+                                    TextColor="Black"/>
+                            </StackLayout>
+                        </AbsoluteLayout>
+                        <Image 
+                            Margin="20,0"
+                            BackgroundColor="DarkGray" 
+                            HeightRequest="1"/>
+                        <AbsoluteLayout Margin="20,0">
+                            <Image Source="income.png" VerticalOptions="Center"/>
+                            <StackLayout
+                                Orientation="Horizontal" 
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                AbsoluteLayout.LayoutBounds=".99,.5">
+
+                                <Label
+                                    x:Name="lbl_income"
+                                    TextColor="Black"
+                                    FontAttributes="Bold"/>
+                                <Label
+                                    Text="円"
+                                    VerticalTextAlignment="End"
+                                    FontSize="12"
+                                    TextColor="Black"/>
+                            </StackLayout>
+                        </AbsoluteLayout>
+                        <AbsoluteLayout Margin="20,-4,20,0">
+                            <Image Source="excome.png" VerticalOptions="Center"/>
+                            <StackLayout
+                                Orientation="Horizontal" 
+                                AbsoluteLayout.LayoutFlags="PositionProportional"
+                                AbsoluteLayout.LayoutBounds=".99,.5">
+                                <Label
+                                    x:Name="lbl_spend"
+                                    TextColor="#F25D5D"
+                                    FontAttributes="Bold"/>
+                                <Label
+                                    Text="円"
+                                    VerticalTextAlignment="End"
+                                    FontSize="12"
+                                    TextColor="Black"/>
+                            </StackLayout>
+                        </AbsoluteLayout>
+                    </StackLayout>
+                </Frame>
+                <ImageButton
+                    Source="fee_btn.png"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Margin="0,6,0,0"
+                    BackgroundColor="Transparent"
+                    x:Name="fee_btn"
+                    Clicked="Fee_btn_Clicked"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <ImageButton 
+                            BackgroundColor="Transparent"
+                            Source="thread.png"
+                            Clicked="ImgBtn_board_Clicked"/>
+                    <ImageButton Grid.Column="1"
+                            BackgroundColor="Transparent"
+                            Clicked="ImgBtn_column_Clicked"
+                            Source="comment.png"/>
+
+                    <ImageButton Grid.Column="2"
+                                 BackgroundColor="Transparent"
+                                 x:Name="imgZero"
+                                 VerticalOptions="Center"
+                                 Source = "zeroManage.png"
+                                 Clicked="imgZero_Clicked"/>
+                    <ImageButton Grid.Column="2"
+                                 BackgroundColor="Transparent"
+                                 x:Name="imgAdmin"
+                                 VerticalOptions="Center"
+                                 Source = "admin.png"
+                                 IsVisible="False"
+                                 Clicked="imgAdmin_Clicked"/>
+                </Grid>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <ImageButton BackgroundColor="Transparent"
+                                 Source="fee.png"
+                                 Clicked="imgEstimate_Clicked"/>
+                    <ImageButton BackgroundColor="Transparent"
+                                 Grid.Column="1"
+                                 Source="building.png"
+                                 Clicked="imgSaleList_clicked"/>
+                    <ImageButton BackgroundColor="Transparent"
+                                 Grid.Column="2"
+                                 Source="wallet.png"
+                                 Clicked="imgConfirm_clicked"/>
+                </Grid>
+                
+                <ImageButton
+                    Source="imgChatBg.png"
+                    Clicked="imgQA_Clicked"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="Transparent"/>
+                
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

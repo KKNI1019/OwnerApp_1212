@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.RegisterStep3"
+             xmlns:local="clr-namespace:owner"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White">
+                <ImageButton
+                    Source="back1.png"
+                    x:Name="back_btn"
+                    Clicked="Back_btn_Clicked"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    VerticalOptions="CenterAndExpand"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0,0.5"/>
+            </AbsoluteLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0*" />
+                    <RowDefinition Height="25*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="33*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="14*" />
+                    <RowDefinition Height="5*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout
+				    Grid.Row="1"
+				    Grid.Column="0">
+                    <Image
+					    Source="logo.png"
+					    HorizontalOptions="CenterAndExpand">
+                    </Image>
+                    <Image
+					    Source="step3.png"
+					    HorizontalOptions="CenterAndExpand">
+                    </Image>
+                </StackLayout>
+                <Label
+				    Grid.Row="2"
+				    Grid.Column="0"
+				    Text="代行手数料はおいくらですか？"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+				    TextColor="Black"
+				    HorizontalOptions="CenterAndExpand"
+				    VerticalOptions="Center"/>
+                <StackLayout
+				    Grid.Column="0"
+				    Grid.Row="3"
+				    Padding="30, 10, 15, 10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="90*"/>
+                            <ColumnDefinition Width="10*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame
+						    Grid.Column="0"
+						    BorderColor="#F8F8F8"
+                            BackgroundColor="#F8F8F8"
+						    Padding="5">
+                            <StackLayout>
+                                <Label
+								    Text="代行手数料"
+                                    TextColor="#A0A0A0"
+								    HorizontalOptions="StartAndExpand"/>
+                                <local:BorderlessEditor
+								    HorizontalOptions="Fill"
+								    TextColor="#EA4343"
+								    MaxLength="10"
+                                    Text=""
+								    AutoSize="TextChanges"
+								    Keyboard="Numeric"
+								    FlowDirection="RightToLeft"
+								    x:Name="agency_fee"
+                                    IsTabStop="False"
+                                    FontSize="30"/>
+                            </StackLayout>
+                        </Frame>
+                        <Label
+						    Grid.Column="1"
+						    Text="円"
+						    TextColor="Black"
+						    HorizontalOptions="Fill"
+						    VerticalOptions="End"/>
+                    </Grid>
+                    <Label
+					    Text="※おおよその金額でも結構です"
+					    FontSize="Small"
+					    TextColor="#A0A0A0"
+					    HorizontalOptions="CenterAndExpand"/>
+                </StackLayout>
+
+                <AbsoluteLayout
+				    Grid.Row="5"
+				    Grid.Column="0">
+                    <ImageButton
+					    Source="btn_next.png"
+					    AbsoluteLayout.LayoutFlags="PositionProportional"
+					    AbsoluteLayout.LayoutBounds="0.5,0.5"
+					    BackgroundColor="Transparent"
+					    x:Name="step3_next_btn"
+                        Clicked="Step3_next_btn_Clicked">
+                    </ImageButton>
+                </AbsoluteLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

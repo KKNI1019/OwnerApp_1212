@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+			 x:Class="owner.LoginPage"
+			 xmlns:local="clr-namespace:owner"
+             NavigationPage.HasNavigationBar="False"
+			 xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+			 BackgroundColor="#F8F8F8">
+
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout BackgroundColor="WhiteSmoke">
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness"
+							    iOS="0,20,0,0"
+							    Android="0,0,0,0"/>
+                </StackLayout.Margin>
+                <AbsoluteLayout
+				    HeightRequest="40"
+				    Padding="15, 5"
+				    BackgroundColor="White">
+                    <Image
+					    Source="logo_full_land.png"
+					    HorizontalOptions="CenterAndExpand"
+					    VerticalOptions="CenterAndExpand"
+					    AbsoluteLayout.LayoutFlags="PositionProportional"
+					    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+                </AbsoluteLayout>
+                <StackLayout Padding="40,0">
+                    <Label 
+                        Text="ログイン"
+					    HorizontalOptions="CenterAndExpand"
+					    TextColor="Black"
+					    Margin="0,20" />
+                    <Label Text="メールアドレス" FontSize="10"/>
+                    <Frame
+                        BorderColor="#A0A0A0"
+					    BackgroundColor="White"
+					    Padding="5">
+                        <local:BorderlessEntry
+						    HorizontalOptions="Fill"
+						    TextColor="Black"
+						    Keyboard="Email"
+						    x:Name="email"
+                            Text=""/>
+                    </Frame>
+                    <Label Text="パスワード" FontSize="10"/>
+                    <Frame
+					    BorderColor="#A0A0A0"
+					    BackgroundColor="White"
+					    Padding="5">
+                        <local:BorderlessEntry
+						    HorizontalOptions="Fill"
+						    IsPassword="True"
+						    TextColor="Black"
+						    x:Name="password"
+                            Text=""/>
+                    </Frame>
+                    <ImageButton 
+                        BackgroundColor="Transparent"
+					    Source="imgBtn_Login"
+					    x:Name="imgBtn_Login"
+					    Margin="0,15"
+					    Clicked="ImgBtn_Login_Clicked"/>
+                    <Label Text="SNSでログイン" FontSize="10"/>
+                    <ImageButton
+                        BackgroundColor="Transparent"
+					    Source="facebook.png"
+					    x:Name="imgBtn_facebookLogin"
+					    Clicked="ImgBtn_facebookLogin_Clicked"/>
+                    <ImageButton 
+                        BackgroundColor="Transparent"
+					    Source="twitter.png"
+					    x:Name="imgBtn_twitterLogin"
+					    Margin="0,-15,0,-15"
+					    Clicked="ImgBtn_twitterLogin_Clicked"/>
+                    <ImageButton 
+                        BackgroundColor="Transparent"
+					    Source="line.png"
+					    x:Name="imgBtn_lineLogin"
+					    Clicked="ImgBtn_lineLogin_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+            <ActivityIndicator x:Name="loadingbar" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Center" 
+                               Color="DeepPink"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

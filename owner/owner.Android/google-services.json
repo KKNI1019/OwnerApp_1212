@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "256117561436",
+    "firebase_url": "https://real-estate-owner-app.firebaseio.com",
+    "project_id": "real-estate-owner-app",
+    "storage_bucket": "real-estate-owner-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256117561436:android:4ff3420dfc3b1412d72e99",
+        "android_client_info": {
+          "package_name": "com.jp.budi.owner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256117561436-s7fb91tdsrurov1k2s10a6vhnlsca0rp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrngTrWgdxWEByero0SQObqsqe8pHr6Rg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256117561436-s7fb91tdsrurov1k2s10a6vhnlsca0rp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

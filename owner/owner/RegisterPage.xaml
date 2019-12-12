@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.RegisterPage"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </Grid.Margin>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*" />
+                <RowDefinition Height="30*" />
+                <RowDefinition Height="15*" />
+                <RowDefinition Height="30*" />
+                <RowDefinition Height="15*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80*"/>
+            </Grid.ColumnDefinitions>
+            <Image
+                Grid.Row="1"
+                Grid.Column="0"
+                Source="logo_full.png">
+            </Image>
+            <StackLayout 
+                Grid.Column="0"
+                Grid.Row="3">
+                <AbsoluteLayout
+                    VerticalOptions="CenterAndExpand">
+                    <ImageButton
+                        Source="btn_3step.png"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        AbsoluteLayout.LayoutBounds="0.5,0.5"
+                        BackgroundColor="Transparent"
+                        x:Name="start_register_btn"
+                        Clicked="Start_register_btn_Clicked">
+                    </ImageButton>
+                </AbsoluteLayout>
+                <AbsoluteLayout>
+                    <Label
+                        Text="あとで登録する"
+                        FontSize="Default"
+                        TextColor="#FF9D00"
+                        TextDecorations="Underline"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        AbsoluteLayout.LayoutBounds="0.5,0.3"
+                        x:Name="lbl_later"/>
+                </AbsoluteLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

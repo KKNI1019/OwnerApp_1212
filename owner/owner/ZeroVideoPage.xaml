@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:o="clr-namespace:Octane.Xamarin.Forms.VideoPlayer;assembly=Octane.Xamarin.Forms.VideoPlayer"
+             x:Class="owner.ZeroVideoPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout BackgroundColor="Black">
+                <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="Black">
+                    <ImageButton x:Name="imgBtn_mute"
+                             AbsoluteLayout.LayoutFlags="PositionProportional" 
+                             AbsoluteLayout.LayoutBounds="0.02,0.02"
+                             Padding="7"
+                             Source="mute.png"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="Start"
+                             HorizontalOptions="Start"
+                             Clicked="ImgBtn_mute_Clicked"/>
+                    <ImageButton x:Name="imgBtn_muteOff"
+                             AbsoluteLayout.LayoutBounds="0.02,0.02"
+                             AbsoluteLayout.LayoutFlags="PositionProportional"
+                             Source="mute_off.png"
+                             Padding="7"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="Start"
+                             HorizontalOptions="Start"
+                             IsVisible="False"
+                             Clicked="ImgBtn_muteOff_Clicked"/>
+                    <ImageButton x:Name="imgBtn_skip"
+                             AbsoluteLayout.LayoutFlags="PositionProportional" 
+                             AbsoluteLayout.LayoutBounds="0.98,0.02"
+                             Padding="7"
+                             Grid.Column="1"
+                             Source="skip.png"
+                             BackgroundColor="Transparent"
+                             HorizontalOptions="End"
+                             VerticalOptions="Start"
+                             Clicked="ImgBtn_skip_Clicked"/>
+                    <o:VideoPlayer x:Name="myVideoView"  
+                                   AbsoluteLayout.LayoutFlags="PositionProportional"
+                                   AbsoluteLayout.LayoutBounds="0.5,0.5"
+                                   WidthRequest="360" HeightRequest="202"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center"
+                            DisplayControls="False"
+                            Margin="5, 60" 
+                            AutoPlay="True"
+                            FillMode="ResizeAspect"
+                            Completed="MyVideoView_Completed" />
+                    <ImageButton x:Name="imgBtn_play"
+                                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                                 AbsoluteLayout.LayoutBounds="0.5,0.5"
+                             BackgroundColor="Transparent"
+                             Source="play.png"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Clicked="ImgBtn_play_Clicked"/>
+                    <ImageButton x:Name="imgBtn_pause"
+                                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                                 AbsoluteLayout.LayoutBounds="0.5,0.5"
+                                 WidthRequest="200"
+                                 HeightRequest="200"
+                             BackgroundColor="Transparent"
+                             Source="imgpause.png"
+                             HorizontalOptions="Center"
+                             VerticalOptions="Center"
+                             Clicked="ImgBtn_pause_Clicked"/>
+                    <ActivityIndicator Color="White" x:Name="loadingbar" 
+                                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                                       AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+                </AbsoluteLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

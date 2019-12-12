@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:local="clr-namespace:owner"
+    xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+    x:Class="owner.ConfirmReportAddPopup">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            DurationIn = "400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Top"
+            PositionOut="Top"
+            ScaleIn="1"
+            ScaleOut="1"/>
+    </pages:PopupPage.Animation>
+    <StackLayout   
+        VerticalOptions="Start">
+        <AbsoluteLayout  
+            HorizontalOptions="FillAndExpand" 
+            BackgroundColor="White" 
+            HeightRequest="50" >
+            <Label 
+                Text="項目の追加"
+                TextColor="Black" 
+                AbsoluteLayout.LayoutBounds=".5,.5"
+                AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            <ImageButton 
+                BackgroundColor="Transparent" 
+                Source="imgDel" 
+                AbsoluteLayout.LayoutFlags="PositionProportional" 
+                AbsoluteLayout.LayoutBounds=".99,.5" 
+                Padding="10" 
+                Clicked="imgDel_Clicked"/>
+        </AbsoluteLayout>
+
+        <StackLayout 
+            Padding="20,20,20,6" 
+            BackgroundColor="White" 
+            Margin="0,-6,0,0">
+            <Frame
+                BorderColor="#A0A0A0"
+                BackgroundColor="#F8F8F8"
+				Padding="5">
+                <local:BorderlessEntry
+                    x:Name="ent_itemname"
+					HorizontalOptions="FillAndExpand"  
+                    Placeholder="追加する項目を入力してください"
+                    TextColor="Black"/>
+            </Frame>
+            <input:RadioButtonGroupView x:Name="radio_category"
+                                        Margin="0,10"
+                                        Orientation="Horizontal"
+                                        HorizontalOptions="Center">
+                <input:RadioButton Text="収入"
+                                   Value="0"
+                                   TextFontSize="15"
+                                   TextColor="Black"
+                                   CircleColor="#A0A0A0"
+                                   Color="#FF9D00"/>
+                <input:RadioButton Text="支出"
+                                   Value="1"
+                                   TextFontSize="15"
+                                   TextColor="Black"
+                                   CircleColor="#A0A0A0" 
+                                   Color="#FF9D00"
+                                   Margin="20,0"/>
+            </input:RadioButtonGroupView>
+
+            <ImageButton 
+                BackgroundColor="Transparent"
+                Source="btn_finish" 
+                Clicked="ImageButton_Clicked" 
+                HorizontalOptions="Center"/>
+        </StackLayout>
+
+    </StackLayout>
+</pages:PopupPage>

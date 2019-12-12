@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:owner="clr-namespace:owner"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="owner.ConfirmEmailPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+							    iOS="0,20,0,0"
+							    Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+				    HeightRequest="50"
+				    Padding="15, 5"
+                    Margin="0,0,0,-6"
+				    BackgroundColor="White">
+                <ImageButton 
+                    BackgroundColor="Transparent" 
+                    Source="back1"
+                    Padding="10" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds=".01,.5" 
+                    Clicked="BtnBack_Clicked"/>
+                <Image
+					    Source="logo_full_land.png"
+					    HorizontalOptions="CenterAndExpand"
+					    VerticalOptions="CenterAndExpand"
+					    AbsoluteLayout.LayoutFlags="PositionProportional"
+					    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+            <StackLayout BackgroundColor="WhiteSmoke"
+                         VerticalOptions="FillAndExpand"
+                         Padding="40">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.2*"/>
+                        <RowDefinition Height="0.3*"/>
+                        <RowDefinition Height="0.3*"/>
+                    </Grid.RowDefinitions>
+                    <Label Text="メールアドレスの確認"
+                           TextColor="Black"
+                           Grid.Row="0"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Start"/>
+                    <StackLayout HorizontalOptions="Center"
+                                 Grid.Row="1"
+                                 VerticalOptions="Start">
+                        <Label TextColor="Black"
+                               HorizontalOptions="Center"
+                               x:Name="lbl_email"/>
+                        <Label TextColor="Black"
+                               Margin="0,-2,0,0"
+                               HorizontalOptions="Center"
+                               Text="宛に確認コードを送しました。"/>
+                    </StackLayout>
+                    <StackLayout VerticalOptions="Start" Grid.Row="2">
+                        <Label Text="確認コード"
+                               TextColor="DarkGray"
+                               Margin="0,0,0,-2"
+                               FontSize="14"/>
+                        <Frame BorderColor="DarkGray"
+                               HasShadow="False"
+                               Padding="20,5"
+                               BackgroundColor="White"
+                               CornerRadius="5">
+                            <owner:BorderlessEntry FontSize="15"
+                                                   x:Name="ent_confCode"
+                                                   Keyboard="Numeric"
+                                                   TextColor="Black"
+                                                   MaxLength="6"/>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout VerticalOptions="Start" Grid.Row="3">
+                        <ImageButton x:Name="btn_confirm"
+                                     BackgroundColor="Transparent"
+                                     Source="btn_confirm_email.png"
+                                     HorizontalOptions="Center"
+                                     Clicked="Btn_confirm_Clicked"/>
+                        <Label HorizontalOptions="Center"
+                               Margin="0,10,0,0"
+                               Text="コードを再送信">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Lbl_sendAgain_tap"/> 
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                    
+                </Grid>
+                <ActivityIndicator VerticalOptions="CenterAndExpand"
+                                   HorizontalOptions="Center" 
+                                   x:Name="loadingbar"
+                                   Color="DeepPink"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

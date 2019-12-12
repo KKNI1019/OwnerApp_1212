@@ -1,0 +1,472 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="arialuni.TTF" />
+    <None Remove="jhenghei.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="arialuni.TTF" />
+    <EmbeddedResource Include="jhenghei.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Octane.Xam.VideoPlayer" Version="3.1.0" />
+    <PackageReference Include="PhotoBrowser.Forms" Version="0.1.4" />
+    <PackageReference Include="Plugin.Badge" Version="2.2.1" />
+    <PackageReference Include="Plugin.InAppBilling" Version="2.0.0" />
+    <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
+    <PackageReference Include="RestSharp" Version="106.6.10" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.1.5.188" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.6.292" />
+    <PackageReference Include="Syncfusion.Xamarin.Pdf" Version="17.2.0.34" />
+    <PackageReference Include="Syncfusion.Xamarin.SfChart" Version="17.2.0.34" />
+    <PackageReference Include="Syncfusion.Xamarin.SfListView" Version="17.2.0.34" />
+    <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
+    <PackageReference Include="Xamarin.Auth" Version="1.6.0.4" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.0.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.0.0.709238" />
+    <PackageReference Include="Xamarin.Forms.InputKit" Version="3.0.12" />
+    <PackageReference Include="Xamarin.Forms.Plugin.HorizontalList" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="FeeCalculatePage.xaml.cs">
+      <DependentUpon>FeeCalculatePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="FeeCalculateRegisterPage.xaml.cs">
+      <DependentUpon>FeeCalculateRegisterPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="BlankPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="BoardPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="BoardPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="BoradDelPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ColumnDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ColumnPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ColumnPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ConfirmEmailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ConfirmReportAddPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ConfirmReportAddPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ConfirmReportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EstateSaleStep1Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EstateSaleStep2Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EstateSaleStep3.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EstateSaleStep4Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EstateSaleStep5Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EstateSaleStep6Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EstateSaleStep7Page.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="EstateSaleStep8.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FAQPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FeeCalculateAddPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FeeCalculatePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FeeCalculatePage1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FeeCalculatePopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="FeeCalculateRegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="LoginStartPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MyInfoUpdateCompletePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MyInfoUpdatePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="MyPage1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NewsCommentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NewsDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NewsFavoritePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NewsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NewsWebPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NoticeSaleDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NoticeSaleFinal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NotificationDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="NotificationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PaymentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="PripacyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RegisterComplete.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RegisterFinal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RegisterStep1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RegisterStep2.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="RegisterStep3.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SaleEstimateCompletePagexaml.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SaleEstimatePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SaleRequestDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SaleRequestPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="SideMenuPopup.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="TabPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ThreadPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="VideoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroCompletionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroContractPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroFinalPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroNoResponsePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroRegisterAlert.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroRegisterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroRegisterPage1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroRegisterStartPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroUnregisterAlert.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroVideoPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="ZeroWrongPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="BlankPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="BoardPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="BoardPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="BoradDelPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ColumnDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ColumnPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ColumnPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ConfirmReportAddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ConfirmReportAddPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ConfirmReportPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="EstateSaleStep1Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="EstateSaleStep2Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="EstateSaleStep3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="EstateSaleStep4Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="EstateSaleStep5Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="EstateSaleStep6Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="EstateSaleStep7Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="EstateSaleStep8.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="FAQPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="FeeCalculateAddPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="FeeCalculatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="FeeCalculatePage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="FeeCalculatePopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="FeeCalculateRegisterPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="LoginStartPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MyInfoUpdateCompletePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MyInfoUpdatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="MyPage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="NewsCommentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="NewsDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="NewsFavoritePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="NewsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="NewsWebPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="NoticeSaleDetail.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="NoticeSaleFinal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="NotificationDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="NotificationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="PaymentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="PripacyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="RegisterComplete.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="RegisterFinal.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="RegisterPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="RegisterStep1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="RegisterStep2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="RegisterStep3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="SaleEstimateCompletePagexaml.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="SaleEstimatePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="SaleRequestDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="SaleRequestPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="SideMenuPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="TabPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ThreadPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="VideoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroCompletionPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroContractPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroFinalPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroNoResponsePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroRegisterAlert.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroRegisterPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroRegisterPage1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroRegisterStartPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroUnregisterAlert.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroVideoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="ZeroWrongPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.EstateSaleStep6Page"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout BackgroundColor="#F8F8F8">
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness"
+                                iOS="0,20,0,0"
+                                Android="0,0,0,0"/>
+                </StackLayout.Margin>
+                <AbsoluteLayout 
+                    HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="White" 
+                    HeightRequest="50">
+                    <ImageButton 
+                        Padding="10" 
+                        BackgroundColor="Transparent" 
+                        Source="back1"  
+                        AbsoluteLayout.LayoutFlags="PositionProportional" 
+                        AbsoluteLayout.LayoutBounds=".01,.5" 
+                        Clicked="imgBack_Clicked"/>
+                    <Label 
+                        Text="本人確認書類撮影" 
+                        FontSize="16" 
+                        TextColor="Black"
+                        AbsoluteLayout.LayoutBounds=".5,.5" 
+                        AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                </AbsoluteLayout>
+                <Label 
+                    Text="送信してよろしいですか？"
+                    HorizontalOptions="CenterAndExpand" 
+                    TextColor="Black"
+                    Margin="0,30,0,20"/>
+                <StackLayout 
+                    BackgroundColor="#A0A0A0">
+                    <Image 
+                        x:Name="img_certificationPhoto"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        HeightRequest="240" 
+                        Margin="6,0"
+                        Aspect="AspectFit"/>
+                </StackLayout>
+                <ImageButton
+                    x:Name="send_btn"
+                    BackgroundColor="Transparent"
+                    Source="btn_send.png"
+                    Clicked="Send_btn_Clicked"
+                    Margin="0,50,0,-10"/>
+                <Button 
+                    x:Name="btnCaptureAgain"
+                    BackgroundColor="Transparent"
+                    Text="もう一度撮影する"
+                    Clicked="BtnCaptureAgain_Clicked"
+                    TextColor="#FF9D00"/>
+            </StackLayout>
+            <ActivityIndicator x:Name="loadingbar" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Center" 
+                               Color="DeepPink"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

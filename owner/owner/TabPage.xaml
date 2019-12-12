@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="owner.TabPage"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:local="clr-namespace:owner"
+    xmlns:plugin="clr-namespace:Plugin.Badge.Abstractions;assembly=Plugin.Badge.Abstractions" 
+    android:TabbedPage.ToolbarPlacement="Bottom"
+    android:TabbedPage.BarSelectedItemColor="#F8B500"
+    BarBackgroundColor="White"
+    x:Name="tabpage"
+    BarTextColor="Black"
+    NavigationPage.HasNavigationBar="false">
+    <NavigationPage x:Name="HomeTab"
+                    Title="ホーム"
+                    Icon="home.png" 
+                    NavigationPage.HasNavigationBar="false">
+        <x:Arguments>
+            <local:HomePage NavigationPage.HasNavigationBar="false"/>
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage x:Name="FaqTab"
+                    Title="Q&amp;AチャットBot" 
+                    Icon="faq.png"
+                    NavigationPage.HasNavigationBar="false">
+        <x:Arguments>
+            <local:FAQPage NavigationPage.HasNavigationBar="false"/>
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage Title="お知らせ" 
+                    Icon="notification.png" 
+                    NavigationPage.HasNavigationBar="False"
+                    x:Name="NotiTab"
+                    plugin:TabBadge.BadgeColor="Red"
+                    plugin:TabBadge.BadgeTextColor="Red"
+                    plugin:TabBadge.BadgeFont="0" 
+                    plugin:TabBadge.BadgeMargin="1"
+                    plugin:TabBadge.BadgePosition="PositionTopRight">
+        <x:Arguments>
+            <local:NotificationPage
+                NavigationPage.HasNavigationBar="false"/>
+        </x:Arguments>
+    </NavigationPage>
+
+    <NavigationPage x:Name="MypageTab"
+                    Title="マイページ" 
+                    Icon="mypage.png" 
+                    NavigationPage.HasNavigationBar="false">
+        <x:Arguments>
+            <local:MyPage NavigationPage.HasNavigationBar="false"/>
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>

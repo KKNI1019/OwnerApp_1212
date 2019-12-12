@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.SaleRequestPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout 
+            BackgroundColor="WhiteSmoke">
+            <StackLayout.Margin>
+                <OnPlatform 
+                    x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout 
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="White" 
+                HeightRequest="50">
+                <ImageButton 
+                    Padding="10" 
+                    BackgroundColor="Transparent"
+                    Source="back1" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional" 
+                    AbsoluteLayout.LayoutBounds=".01,.5"
+                    Clicked="imgBack_Clicked"/>
+                <Label 
+                    Text=""
+                    FontSize="16" 
+                    TextColor="Black" 
+                    AbsoluteLayout.LayoutBounds=".5,.5" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    x:Name="lbl_title"/>
+                <ImageButton 
+                    Padding="10" 
+                    BackgroundColor="Transparent" 
+                    Source="imgAdd" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds=".99,.5"
+                    Clicked="imgAdd_clicked"/>
+            </AbsoluteLayout>
+
+            <ListView ItemsSource="{Binding SaleItems}" 
+                      Margin="0,-6,0,0"
+                      HasUnevenRows="True"
+                      VerticalOptions="FillAndExpand"
+                      ItemTapped="ListView_ItemTapped"
+                      SelectedItem="{Binding SelectedSaleItem}">
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout >
+                                <StackLayout
+                                        Orientation="Horizontal">
+                                    <Image
+                                            Source="{Binding img_url}" 
+                                            VerticalOptions="Center"
+                                            HeightRequest="80"
+                                            WidthRequest="100"
+                                            Aspect="AspectFill"/>
+                                    <StackLayout 
+                                            VerticalOptions="Center"
+                                            Margin="-3,0,5,0" 
+                                            HorizontalOptions="FillAndExpand">
+                                        <Label 
+                                                Text="{Binding building_name}" 
+                                                TextColor="Black" 
+                                                Margin="5,0,0,0"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.33*"/>
+                                                <ColumnDefinition Width="0.33*"/>
+                                                <ColumnDefinition Width="0.33*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <Label 
+                                                    Text="収入"
+                                                    FontSize="11"
+                                                    HorizontalOptions="Center"
+                                                    HorizontalTextAlignment="Center"/>
+                                            <Label
+                                                    Grid.Column="1" 
+                                                    Text="支出" FontSize="11"
+                                                    HorizontalOptions="Center"
+                                                    HorizontalTextAlignment="Center"/>
+                                            <Label 
+                                                    Grid.Column="2" 
+                                                    Text="毎月の収支" 
+                                                    FontSize="11" 
+                                                    HorizontalOptions="Center"
+                                                    HorizontalTextAlignment="Center"/>
+                                            <StackLayout 
+                                                    Orientation="Horizontal" 
+                                                    Grid.Row="1"
+                                                    Margin="0,-3,0,0"
+                                                    HorizontalOptions="Center">
+                                                <Label 
+                                                        Text="{Binding income}" 
+                                                        TextColor="Black" 
+                                                        FontSize="13" 
+                                                        FontAttributes="Bold"
+                                                        VerticalOptions="Center" 
+                                                        HorizontalOptions="Center" 
+                                                        HorizontalTextAlignment="Center"/>
+                                                <Label 
+                                                        Text="円" 
+                                                        FontSize="11" 
+                                                        Margin="-5,0,0,0"
+                                                        VerticalOptions="Center" 
+                                                        HorizontalOptions="Center"
+                                                        HorizontalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            <StackLayout 
+                                                    Orientation="Horizontal"
+                                                    Grid.Row="1"
+                                                    Grid.Column="1" 
+                                                    Margin="0,-3,0,0" 
+                                                    HorizontalOptions="Center">
+                                                <Label 
+                                                        Text="{Binding excome}" 
+                                                        TextColor="OrangeRed" 
+                                                        FontSize="13" 
+                                                        FontAttributes="Bold"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="Center"
+                                                        HorizontalTextAlignment="Center"/>
+                                                <Label
+                                                        Text="円" 
+                                                        FontSize="11" 
+                                                        TextColor="OrangeRed" 
+                                                        Margin="-5,0,0,0" 
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="Center"
+                                                        HorizontalTextAlignment="Center"/>
+                                            </StackLayout>
+                                            <StackLayout 
+                                                    Orientation="Horizontal" 
+                                                    Grid.Row="1" 
+                                                    Grid.Column="2" 
+                                                    Margin="0,-3,0,0" 
+                                                    HorizontalOptions="Center">
+                                                <Label 
+                                                        Text="{Binding monthly_balance}"
+                                                        TextColor="Black"
+                                                        FontSize="13"
+                                                        FontAttributes="Bold"
+                                                        VerticalOptions="Center" 
+                                                        HorizontalOptions="Center" 
+                                                        HorizontalTextAlignment="Center"/>
+                                                <Label 
+                                                        Text="円"
+                                                        FontSize="11" 
+                                                        Margin="-5,0,0,0"
+                                                        VerticalOptions="Center"
+                                                        HorizontalOptions="Center" 
+                                                        HorizontalTextAlignment="Center"/>
+                                            </StackLayout>
+                                        </Grid>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

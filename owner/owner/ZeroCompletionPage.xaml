@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="owner.ZeroCompletionPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="WhiteSmoke">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                                iOS="0,20,0,0"
+                                Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                    HeightRequest="40"
+                    Padding="15, 5"
+                    BackgroundColor="White">
+                <Label  HorizontalOptions="CenterAndExpand"
+                        Text="Zero管理"
+                        VerticalOptions="CenterAndExpand"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+					    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+            <Label Text="ご確認ありがとうございます。"
+                   HorizontalOptions="Center"
+                   Margin="40,50"/>
+            <Label Text="手続きが完了いたしました。&#10;budi conciergeが提供する快適な賃貸管理をお楽しみ下さい。"
+                   Margin="40,0"
+                   HorizontalOptions="Center"/>
+            <ImageButton Source="btn_home.png"
+                         BackgroundColor="Transparent"
+                         Margin="50,100,50,20"
+                         HorizontalOptions="Center"
+                         x:Name="btn_completion"
+                         Clicked="Btn_completion_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

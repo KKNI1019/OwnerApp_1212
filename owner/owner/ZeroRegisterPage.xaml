@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.ZeroRegisterPage"
+             xmlns:local="clr-namespace:owner"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F8F8F8">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White">
+                <ImageButton
+                    Source="back1.png"
+                    x:Name="back_btn"
+                    Clicked="Back_btn_Clicked"
+                    BackgroundColor="Transparent"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0,0.5"/>
+                <Label x:Name="lbl_title"
+                    FontSize="16"                    
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+
+            <ScrollView>
+                <StackLayout Padding="30,15">
+                    <Label
+                    Text="物件情報"
+                    Margin="0,0,0,5"
+                    TextColor="Black"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center">
+                    </Label>
+                    <Label
+					Text="エリア"
+                    TextColor="Gray"
+					FontSize="13"/>
+                    <Frame
+                    BorderColor="#A0A0A0"
+                    BackgroundColor="White"
+                    Padding="10,5">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="lbl_state_tap"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label x:Name="lbl_state" VerticalOptions="Center" FontSize="15"
+                                       TextColor="Black"/>
+                            <Image Source="dropdown.png" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"
+                                       HeightRequest="15" Aspect="AspectFit"/>
+                        </StackLayout>
+                    </Frame>
+                    <Picker x:Name="picker_state"
+                                IsVisible="False"
+                                SelectedIndexChanged="Picker_state_SelectedIndexChanged"
+                                TextColor="Black"/>
+                    <Frame
+                    BorderColor="#A0A0A0"
+                    BackgroundColor="White"
+                    Padding="10,5">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="lbl_city_tap"/>
+                            </StackLayout.GestureRecognizers>
+                            <Label x:Name="lbl_city" VerticalOptions="Center" TextColor="Black" FontSize="15"/>
+                            <Image Source="dropdown.png" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"
+                                        HeightRequest="12" Aspect="AspectFit"/>
+                        </StackLayout>
+                    </Frame>
+                    <Picker x:Name="picker_city"
+                                IsVisible="False"
+                                SelectedIndexChanged="Picker_city_SelectedIndexChanged"
+                                TextColor="Black"/>
+                    <Label Margin="0,6,0,0"
+                           Text="物件名"
+                           TextColor="Gray"
+                           FontSize="13"/>
+                    <Frame BorderColor="#A0A0A0"
+                           BackgroundColor="White"
+                           Padding="5">
+                        <local:BorderlessEntry HorizontalOptions="Fill"
+                                               TextColor="Black"
+                                               x:Name="estate_name"
+                                               Text=""/>
+                    </Frame>
+                    <Label Text="号室"
+                           TextColor="Gray"
+                           FontSize="13"/>
+                    <Frame BorderColor="#A0A0A0"
+                           BackgroundColor="White"
+                           Padding="5">
+                        <local:BorderlessEntry HorizontalOptions="Fill"
+                                               TextColor="Black"
+                                               Keyboard="Numeric"
+                                               x:Name="room_number"
+                                               Text=""/>
+                    </Frame>
+                    <Label Text="管理会社"
+                           TextColor="Gray"
+                           FontSize="13"/>
+                    <Frame BorderColor="#A0A0A0"
+                           BackgroundColor="White"
+                           Padding="5">
+                        <local:BorderlessEntry HorizontalOptions="Fill"
+                                               TextColor="Black"
+                                               x:Name="company_name"
+                                               Text=""/>
+                    </Frame>
+                    <Label Text="管理会社連絡先"
+                           TextColor="Gray"
+                           FontSize="13"/>
+                    <Frame BorderColor="#A0A0A0"
+                           BackgroundColor="White"
+                           Padding="5">
+                        <local:BorderlessEntry HorizontalOptions="Fill"
+                                               TextColor="Black"
+                                               Keyboard="Numeric"
+                                               x:Name="company_phone"
+                                               Text=""/>
+                    </Frame>
+
+                    <input:RadioButtonGroupView HorizontalOptions="Center"
+                                                Orientation="Horizontal"
+                                                Margin="0,5,0,0"
+                                                x:Name="zero_type">
+                        <input:RadioButton Text="代行管理"
+                                           Value="0"
+                                           CircleColor="#A0A0A0"
+                                           BackgroundColor="Transparent"
+                                           TextColor="Black"
+                                           TextFontSize="15"
+                                           Color="#FF9D00"/>
+                        <input:RadioButton Margin="10,0,0,0"
+                                           Text="保証管理"
+                                           Value="1"
+                                           CircleColor="#A0A0A0"
+                                           BackgroundColor="Transparent"
+                                           TextColor="Black"
+                                           TextFontSize="15"
+                                           Color="#FF9D00"/>
+                    </input:RadioButtonGroupView>
+                    <Label Text="家賃"
+                           TextColor="Gray"
+                           FontSize="13"/>
+                    <Frame BorderColor="#A0A0A0"
+                           BackgroundColor="White"
+                           Margin="0,0,0,25"
+                           Padding="5">
+                        <local:BorderlessEntry HorizontalOptions="Fill"
+                                               TextColor="Blue"
+                                               x:Name="ent_rent"
+                                               Keyboard="Numeric"
+                                               Text=""/>
+                    </Frame>
+                    <StackLayout
+                    Grid.Column="0"
+                    Grid.Row="2">
+                        <ImageButton
+                            Source="btn_send.png"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            AbsoluteLayout.LayoutBounds="0.5,0.5"
+                            BackgroundColor="Transparent"
+                            x:Name="start_btn"
+                            Clicked="Start_btn_Clicked">
+                        </ImageButton>
+                        <Label x:Name="lbl_cancel"
+                               Text="キャンセル"
+                               TextColor="#FF9D00"
+                               HorizontalOptions="Center"
+                               TextDecorations="Underline">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="lbl_cancel_tap"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

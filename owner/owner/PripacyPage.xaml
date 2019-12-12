@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.PripacyPage"
+             BackgroundColor="#F8F8F8">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="WhiteSmoke">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White">
+                <ImageButton
+                    Source="back1.png"
+                    x:Name="back_btn"
+                    Clicked="Back_btn_Clicked"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Start"
+                    VerticalOptions="CenterAndExpand"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+					AbsoluteLayout.LayoutBounds="0,0.5"/>
+                <Label
+                    Text="利用規約"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+					AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+
+            <Grid
+            Padding="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.9*"/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+                <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="あああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ"
+                
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill"/>
+                <AbsoluteLayout
+                Grid.Column="0"
+                Grid.Row="1">
+                    <ImageButton
+                    Source="btn_agree.png"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="0.5,0.5"
+                    BackgroundColor="Transparent"
+                    x:Name="agree_btn"
+                    Clicked="Agree_btn_Clicked">
+                    </ImageButton>
+                </AbsoluteLayout>
+            </Grid>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

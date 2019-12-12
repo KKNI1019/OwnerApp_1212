@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="owner.NewsPage">
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout BackgroundColor="#F8F8F8">
+                <StackLayout.Margin>
+                    <OnPlatform x:TypeArguments="Thickness"
+                                iOS="0,20,0,0"
+                                Android="0,0,0,0"/>
+                </StackLayout.Margin>
+                <AbsoluteLayout HorizontalOptions="FillAndExpand" 
+                                BackgroundColor="White" 
+                                HeightRequest="50">
+                    <ImageButton BackgroundColor="Transparent" 
+                                 Source="back1.png"
+                                 Padding="10" 
+                                 AbsoluteLayout.LayoutFlags="PositionProportional" 
+                                 AbsoluteLayout.LayoutBounds=".01,.5" 
+                                 Clicked="Imgback_Clicked"/>
+                    <Label Text="ニュース" 
+                           FontSize="18" 
+                           TextColor="Black"
+                           AbsoluteLayout.LayoutBounds=".5,.5"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <ImageButton BackgroundColor="Transparent" 
+                                 Source="favorite" 
+                                 Padding="10" 
+                                 AbsoluteLayout.LayoutFlags="PositionProportional" 
+                                 AbsoluteLayout.LayoutBounds=".99,.5" 
+                                 Clicked="ImgFavorite_Clicked"/>
+                </AbsoluteLayout>
+                <ListView ItemsSource="{Binding newsInfo}"
+                          ItemAppearing="Listview_ItemAppearing"                          
+                          HasUnevenRows="True" 
+                          BackgroundColor="#F8F8F8"
+                          SeparatorVisibility="None"
+                          x:Name="listview">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="LightGray"
+                                       Margin="10,5"
+                                       Padding="10"
+                                       CornerRadius="7">
+                                    <StackLayout>
+                                        <Image x:Name="img_thumbnail_first"
+                                               HorizontalOptions="FillAndExpand"
+                                               Source="{Binding news_image_url_header}"
+                                               HeightRequest="{Binding img_header_height}"
+                                               Aspect="AspectFit"/>
+                                        <Label x:Name="lbl_category"
+                                               Text="{Binding news_category}"
+                                               FontSize="10"
+                                               TextColor="Blue"/>
+                                        <!--<Grid>-->
+                                        <!--<Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.7*"/>
+                                                <ColumnDefinition Width="0.3*"/>
+                                            </Grid.ColumnDefinitions>-->
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                            <StackLayout VerticalOptions="Center">
+                                                <Label x:Name="lbl_title"
+                                                       MaxLines="2"
+                                                       TextColor="Black"
+                                                       Text="{Binding news_title}">
+                                                    <Label.GestureRecognizers>
+                                                        <TapGestureRecognizer Tapped="news_title_tap" 
+                                                                              CommandParameter="{Binding news_id}"/>
+                                                    </Label.GestureRecognizers>
+                                                </Label>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label x:Name="lbl_time"
+                                                           FontSize="9"
+                                                           Text="{Binding news_date}"/>
+                                                    <Label x:Name="lbl_news_source"
+                                                           FontSize="9"
+                                                           Text="{Binding news_source}"/>
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <Image WidthRequest="90"
+                                                   HorizontalOptions="EndAndExpand"
+                                                   x:Name="img_thumbnail"
+                                                   Source="{Binding news_image_url_contents}"
+                                                   Aspect="AspectFit"
+                                                   VerticalOptions="Center"/>
+                                        </StackLayout>
+
+                                        <!--</Grid>-->
+                                        <Image HeightRequest="1"
+                                               BackgroundColor="LightGray"/>
+                                        <StackLayout Orientation="Horizontal">
+                                            <custom:CircleImage x:Name="writer_image"
+                                                   Source="imgUser.png"
+                                                   VerticalOptions="Start"
+                                                   WidthRequest="30"/>
+                                            <StackLayout>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label x:Name="writer_nickname"
+                                                           TextColor="Black"
+                                                           FontSize="10"
+                                                           Text="{Binding writer_name}"/>
+                                                    <Label x:Name="writer_job"
+                                                           FontSize="10"
+                                                           Text="{Binding writer_profile}"/>
+                                                </StackLayout>
+                                                <Label x:Name="brief_comment"
+                                                       FontSize="10"
+                                                       Text="{Binding brief_comment}"
+                                                       MaxLines="2"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                            <custom:CircleImage x:Name="first_commenter_image"
+                                                   WidthRequest="12"
+                                                   Source="{Binding first_commenter_image}"/>
+                                            <custom:CircleImage x:Name="second_commenter_image"
+                                                   WidthRequest="12"
+                                                   Margin="-6,0"
+                                                   Source="{Binding second_commenter_image}"/>
+                                            <custom:CircleImage x:Name="third_commenter_image"
+                                                   WidthRequest="12"
+                                                   Source="{Binding third_commenter_image}"/>
+                                            <Label x:Name="first_commenter_name"
+                                                   FontSize="9"
+                                                   Text="{Binding first_commenter_name}"/>
+                                            <Label x:Name="second_commenter_name"
+                                                   FontSize="8"
+                                                   Text="{Binding second_commenter_name}"/>
+                                            <Label x:Name="third_commenter_name"
+                                                   FontSize="8"
+                                                   Text="{Binding third_commenter_name}"/>
+                                            <StackLayout Orientation="Horizontal"
+                                                         HorizontalOptions="EndAndExpand">
+                                                <Label Text="コメント"
+                                                   FontSize="9"/>
+                                                <Label x:Name="comment_num"
+                                                   FontSize="9"
+                                                   Margin="0,0,-5,0"
+                                                   Text="{Binding comment_count}"/>
+                                                <Label Text="件"
+                                                   FontSize="9"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                        <Image BackgroundColor="LightGray"
+                                               HeightRequest="1"/>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.5*"/>
+                                                <ColumnDefinition Width="0.5*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <StackLayout Orientation="Horizontal"
+                                                         Margin="10,0,0,0">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="comment_tap"
+                                                                          CommandParameter="{Binding news_id}"/>
+                                                </StackLayout.GestureRecognizers>
+                                                <Image Source="img_comment"
+                                                       x:Name="imgbtn_comment"/>
+                                                <Label x:Name="lbl_comment"
+                                                       Text="コメントする">
+                                                </Label>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal"
+                                                         Margin="10,0,0,0"
+                                                         Grid.Column="1">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="favorite_tap"
+                                                                          CommandParameter="{Binding news_id}"/>
+                                                </StackLayout.GestureRecognizers>
+                                                <Image Source="{Binding imgfavorite}"
+                                                       x:Name="imgbtn_favorite">
+                                                </Image>
+                                                <Label x:Name="lbl_favorite"
+                                                       Text="お気に入り">
+                                                </Label>
+                                            </StackLayout>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <ActivityIndicator x:Name="loadingbar" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Center" 
+                               Color="DeepPink"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

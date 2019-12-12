@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="owner.MyInfoUpdatePage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="WhiteSmoke">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White">
+                <ImageButton
+                    Source="back1.png"
+                    x:Name="back_btn"
+                    Clicked="Back_btn_Clicked"
+                    BackgroundColor="Transparent"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0,0.5"/>
+                <Label
+                    Text="マイページ"
+                    FontSize="16"
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+            <StackLayout>
+                <Image Source="img_user2.png"
+                        Margin="0,60,0,30"
+                        HorizontalOptions="CenterAndExpand"/>
+                <Label Text="アップデートすると&#10;こんなことができますよ&#10;という説明文"
+                        TextColor="Black"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+                
+                <StackLayout>
+                    <ImageButton x:Name="btn_payment"
+                                 BackgroundColor="Transparent"
+                                 Source="btn_update_now.png"
+                                 HorizontalOptions="Center"
+                                 Clicked="Btn_payment_Clicked"
+                                 Margin="0,50,0,25"/>
+                    <Label x:Name="lbl_cancel"
+                               HorizontalTextAlignment="Center"
+                               VerticalTextAlignment="Center"
+                               TextDecorations="Underline"
+                               Text="キャンセル"
+                               TextColor="#FF9D00">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="lbl_cancel_tap"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

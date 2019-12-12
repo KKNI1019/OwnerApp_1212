@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.ConfirmReportPage"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout 
+            BackgroundColor="#F8F8F8"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout HorizontalOptions="FillAndExpand"
+                            BackgroundColor="White" 
+                            HeightRequest="50">
+                <ImageButton Padding="10" 
+                    BackgroundColor="Transparent" 
+                    Source="back1"  
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds=".01,.5" 
+                    Clicked="ImgBack_Clicked"/>
+                <Label 
+                    Text="確定申告" 
+                    FontSize="Medium" 
+                    TextColor="Black" 
+                    AbsoluteLayout.LayoutBounds=".5,.5" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <ImageButton
+                    BackgroundColor="Transparent"
+                    AbsoluteLayout.LayoutBounds=".95,.5" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    Source="img_pdf_download.png"
+                    x:Name="PDF_btn"
+                    Clicked="PDF_btn_Clicked"
+                    Aspect="AspectFit"/>
+            </AbsoluteLayout>
+            <StackLayout x:Name="stack_content"
+                Padding="0,0,0,15"
+                Orientation="Vertical"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <AbsoluteLayout>
+                    <ImageButton x:Name="btn_previous_building"
+                                 BackgroundColor="Transparent"
+                                 Padding="10"
+                                 IsVisible="False"
+                                 Source="previous.png"
+                                 Clicked="Btn_previous_building_Clicked"
+                                 AbsoluteLayout.LayoutBounds=".04,.5"
+                                 AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                    <Label x:Name="lbl_building_name"
+                           HorizontalOptions="Center"
+                           AbsoluteLayout.LayoutBounds=".5,.5"
+                           AbsoluteLayout.LayoutFlags="PositionProportional"
+                           TextColor="Blue"
+                           FontAttributes="Bold"/>
+                    <ImageButton x:Name="btn_next_building"
+                                 IsVisible="False"
+                                 Clicked="Btn_next_building_Clicked"
+                                 BackgroundColor="Transparent"
+                                 Source="next.png"
+                                 AbsoluteLayout.LayoutBounds=".96,.5"
+                                 AbsoluteLayout.LayoutFlags="PositionProportional"
+                                 Padding="10"/>
+                </AbsoluteLayout>
+                <StackLayout
+                    Orientation="Horizontal"
+                    Padding="20, 0"
+                    Margin="0,-6,0,5"
+                    HorizontalOptions="FillAndExpand">
+                    <AbsoluteLayout
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        BackgroundColor="Transparent">
+                        <ImageButton
+                            Source="img_previous.png"
+                            Padding="5"
+                            AbsoluteLayout.LayoutBounds=".3,.5" 
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            BackgroundColor="Transparent"
+                            x:Name="previous_btn"
+                            Clicked="Previous_btn_Clicked"/>
+                        <StackLayout
+                            Orientation="Horizontal"
+                            AbsoluteLayout.LayoutBounds=".5,.5" 
+                            AbsoluteLayout.LayoutFlags="PositionProportional">
+                            <Label
+                                Text=""
+                                TextColor="Black"
+                                FontSize="14"
+                                x:Name="lbl_year"/>
+                            <Label
+                                Text="年"
+                                TextColor="Black"
+                                FontSize="14"/>
+                        </StackLayout>
+                        <ImageButton
+                            Source="img_next.png"
+                            AbsoluteLayout.LayoutBounds=".7,.5" 
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            BackgroundColor="Transparent"
+                            Padding="5"
+                            x:Name="next_btn"
+                            Clicked="Next_btn_Clicked"/>
+                    </AbsoluteLayout>
+                </StackLayout>
+
+                <StackLayout x:Name="stack_show_list"/>
+
+                <StackLayout
+                    Orientation="Vertical"
+                    HorizontalOptions="Center"
+                    VerticalOptions="EndAndExpand">
+                    <ImageButton
+                        Source="btn_declare.png"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        x:Name="declare_btn"
+                        Clicked="Declare_btn_Clicked"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

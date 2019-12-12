@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.SaleRequestDetailPage"
+             BackgroundColor="White"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical"
+            BackgroundColor="Transparent">
+            <StackLayout.Margin>
+                <OnPlatform 
+                    x:TypeArguments="Thickness"
+                    iOS="0,20,0,0"
+                    Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout 
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="Transparent"
+                HeightRequest="50">
+                <ImageButton 
+                    Padding="10" 
+                    BackgroundColor="Transparent"
+                    Source="back1" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional" 
+                    AbsoluteLayout.LayoutBounds=".01,.5"
+                    Clicked="imgBack_Clicked"/>
+                <Label 
+                    Text=""
+                    FontSize="16" 
+                    TextColor="Black" 
+                    AbsoluteLayout.LayoutBounds=".5,.5" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    x:Name="lbl_title"/>
+                <ImageButton 
+                    Padding="10" 
+                    BackgroundColor="Transparent" 
+                    Source="icon_menu" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds=".99,.5"
+                    Clicked="imgMenu_clicked"/>
+            </AbsoluteLayout>
+            <StackLayout
+                BackgroundColor="#F8F8F8"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <Grid
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="40*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+                    <Image
+                        Grid.Row="0"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Source=""
+                        Aspect="AspectFill"
+                        x:Name="img_building"/>
+                    <StackLayout
+                        Grid.Row="1"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        Padding="20">
+                        <Frame
+                            HorizontalOptions="Fill"
+                            BackgroundColor="White"
+                            BorderColor="#A0A0A0"
+                            CornerRadius="5">
+                            <StackLayout
+                                Orientation="Vertical"
+                                HorizontalOptions="Fill">
+                                <StackLayout
+                                    Orientation="Horizontal"
+                                    HorizontalOptions="Fill">
+                                    <Label
+                                        Text="年間不動産収益"
+                                        TextColor="Black"
+                                        HorizontalOptions="Start"/>
+                                    <Label
+                                        TextColor="Black"
+                                        HorizontalOptions="EndAndExpand">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="" FontAttributes="Bold" x:Name="year_excome"/>
+                                                <Span Text="円"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout
+                                    Orientation="Horizontal"
+                                    HorizontalOptions="Fill">
+                                    <Label
+                                        Text="毎月の収支"
+                                        TextColor="Black"
+                                        HorizontalOptions="Start"/>
+                                    <Label
+                                        TextColor="Black"
+                                        HorizontalOptions="EndAndExpand">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="" FontAttributes="Bold" x:Name="month_excome"/>
+                                                <Span Text="円"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout
+                                    HeightRequest="1"
+                                    HorizontalOptions="Fill"
+                                    BackgroundColor="#A0A0A0">
+                                </StackLayout>
+                                <StackLayout
+                                    Orientation="Horizontal"
+                                    HorizontalOptions="Fill">
+                                    <Label
+                                        Text="今月の家賃収益"
+                                        TextColor="Black"
+                                        HorizontalOptions="Start"/>
+                                    <Label
+                                        TextColor="Black"
+                                        HorizontalOptions="EndAndExpand">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="" FontAttributes="Bold" x:Name="current_excome"/>
+                                                <Span Text="円" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                                
+                                <StackLayout
+                                    Orientation="Horizontal"
+                                    HorizontalOptions="Fill">
+                                    <Label
+                                        Text="支出"
+                                        TextColor="Black"
+                                        HorizontalOptions="Start"/>
+                                    <Label
+                                        TextColor="#EA4343"
+                                        HorizontalOptions="EndAndExpand">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="" FontAttributes="Bold" x:Name="excome"/>
+                                                <Span Text="円"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

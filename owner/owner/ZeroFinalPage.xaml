@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.ZeroFinalPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="WhiteSmoke">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                Margin="0,0,0,-6"
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White">
+                <Label
+                    x:Name="lbl_title"
+                    Text="Zero管理"
+                    TextColor="Black"
+                    FontSize="16"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+            <StackLayout 
+                VerticalOptions="FillAndExpand" 
+                BackgroundColor="WhiteSmoke" 
+                Padding="30,10">
+                <Label
+                    Text="受付完了しました。" 
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand" 
+                    Margin="0,30"/>
+                <Label 
+                    Text="弊社で管理会社の変更が確認次第、お知らせのページからご連絡させていただきます。"
+                    HorizontalOptions="Center"/>
+                <StackLayout
+                    VerticalOptions="EndAndExpand"
+                    Margin="0,0,0,30">
+                    <AbsoluteLayout
+                        VerticalOptions="CenterAndExpand">
+                        <ImageButton
+                            Source="btn_home.png"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            AbsoluteLayout.LayoutBounds="0.5,0.5"
+                            BackgroundColor="Transparent"
+                            x:Name="start_btn"
+                            Clicked="Start_btn_Clicked">
+                        </ImageButton>
+                    </AbsoluteLayout>
+                </StackLayout>
+            </StackLayout>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

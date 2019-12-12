@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="owner.ZeroRegisterAlert">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="WhiteSmoke">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White"
+                Margin="0">
+                <ImageButton
+                    Source="back1.png"
+                    x:Name="back_btn"
+                    Clicked="Back_btn_Clicked"
+                    BackgroundColor="Transparent"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0,0.5"/>
+                <Label x:Name="lbl_title"
+                    Text="Zero管理"
+                    FontSize="16"
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+            <Grid
+                BackgroundColor="#F8F8F8"
+                Padding="10"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                Margin="0,-5,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70*" />
+                    <RowDefinition Height="30*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                </Grid.ColumnDefinitions>
+                <Frame
+                    BackgroundColor="White"
+                    HasShadow="True"
+                    BorderColor="#A0A0A0"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+                    <StackLayout
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand">
+                        <Image
+                            Source="img_user2.png"
+                            Margin="0,30,0,15"
+                            HorizontalOptions="CenterAndExpand"/>
+                        <Label
+                            Text="機能説明がはいります"
+                            TextColor="Black"
+                            FontSize="Default"
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"/>
+                    </StackLayout>
+                </Frame>
+                <StackLayout 
+                    Grid.Column="0"
+                    Grid.Row="1">
+                    <ImageButton
+                        Source="btn_regist.png"
+                        BackgroundColor="Transparent"
+                        x:Name="start_btn"
+                        Clicked="Start_btn_Clicked"
+                        Margin="0,20"
+                        VerticalOptions="Center">
+                    </ImageButton>
+                    <Label
+                        FontSize="Default"
+                        x:Name="lbl_cancel"
+                        VerticalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="キャンセル" TextColor="#FF9D00" TextDecorations="Underline"></Span>
+                            </FormattedString>
+                            </Label.FormattedText>
+                    </Label>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

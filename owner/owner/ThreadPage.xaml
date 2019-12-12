@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:owner"
+             xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="owner.ThreadPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F8F8F8">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="White" 
+                HeightRequest="50">
+                <ImageButton
+                    BackgroundColor="Transparent" 
+                    Padding="10"
+                    Source="back1.png" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds=".01,.5" 
+                    Clicked="ImgBack_Clicked"/>
+                <Label 
+                    x:Name="lbl_thread_title"
+                    Text="スレッド名" 
+                    FontSize="16"
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutBounds=".5,.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            </AbsoluteLayout>
+            <ListView 
+                ItemsSource="{Binding Th_comments}"
+                HasUnevenRows="True"
+                VerticalOptions="FillAndExpand"
+                BackgroundColor="#F8F8F8"
+                SeparatorVisibility="None"
+                x:Name="listview"
+                ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout >
+                                <Image 
+                                    BackgroundColor="#A0A0A0" 
+                                    HeightRequest="1"
+                                    Margin="0,0,0,-6"/>
+                                <StackLayout 
+                                    BackgroundColor="White"
+                                    Padding="20,10">
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.8*"/>
+                                                <ColumnDefinition Width="0.2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label 
+                                                Text="{Binding c_date, StringFormat= '  {0:g}'}" 
+                                                FontSize="10"/>
+                                            <ImageButton 
+                                                Grid.Column="1" 
+                                                Source="more.png" 
+                                                BackgroundColor="Transparent"
+                                                HorizontalOptions="End" 
+                                                VerticalOptions="Start" 
+                                                Padding="10,5,5,10" 
+                                                Clicked="btnMore_Clicked" 
+                                                CommandParameter="{Binding Th_comment_id}"/>
+                                        </Grid>
+                                        <Label 
+                                            Text="{Binding Th_comment_content}" 
+                                            TextColor="Black" 
+                                            FontSize="12"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <custom:CircleImage 
+                                            Aspect="AspectFill"
+                                            Source="{Binding img_url}" 
+                                            WidthRequest="20" 
+                                            VerticalOptions="Center"/>
+                                        <Label 
+                                            Text="{Binding Th_comment_writer_nickname}" 
+                                            TextColor="Black" 
+                                            FontSize="10" 
+                                            VerticalOptions="Center" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <Image 
+                                    BackgroundColor="#A0A0A0"
+                                    HeightRequest="1"
+                                    Margin="0,-6,0,6"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Grid 
+                Padding="10" 
+                BackgroundColor="Gray" 
+                VerticalOptions="EndAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.25*"/>
+                </Grid.ColumnDefinitions>
+                <Frame
+                    BorderColor="#A0A0A0"
+                    BackgroundColor="White"
+					Padding="5">
+                    <local:BorderlessEntry
+                        x:Name="ent_myComment"
+						HorizontalOptions="Fill"
+						TextColor="Black"
+                        Placeholder="投稿内容を入力してください"/>
+                </Frame>
+                <Button 
+                    BackgroundColor="#FAC500"
+                    Padding="-10"
+                    HorizontalOptions="Center"
+                    TextColor ="Black"
+                    x:Name="btn_post"
+                    VerticalOptions="Center"
+                    Clicked="Btn_post_Clicked"
+                    BorderRadius="7"
+                    WidthRequest="90"
+                    Grid.Column="1"
+                    Text="投稿する"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

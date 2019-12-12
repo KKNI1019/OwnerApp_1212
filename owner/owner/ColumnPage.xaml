@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.ColumnPage"
+             xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             NavigationPage.HasNavigationBar="false">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate 
+                x:Name="ItemTemplate"  
+                x:Key="ItemTemplate" >
+                <Frame 
+                    OutlineColor="LightGray" 
+                    BorderColor="LightGray"
+                    CornerRadius="7" 
+                    Padding="15,8" 
+                    BackgroundColor="White" 
+                    Margin="20,6">
+                    <StackLayout VerticalOptions="Center">
+                        <StackLayout Orientation="Horizontal" >
+                            <Label 
+                                Text="{Binding date,StringFormat='{}{0:yyyy/MM/dd}'}" 
+                                Margin="20,0,5,0" 
+                                FontSize="10"
+                                VerticalOptions="Center"/>
+                            <Image 
+                                Source="img_new.png"
+                                HeightRequest="16"
+                                VerticalOptions="Center"
+                                IsVisible="{Binding IsVisible}" />
+                        </StackLayout>
+                        <Label 
+                            Text="{Binding col_title}" 
+                            TextColor="Black" 
+                            FontSize="12" />
+                        <Label 
+                            Text="{Binding col_content}" 
+                            TextColor="Black" 
+                            FontSize="12" 
+                            MaxLines="2" />
+                        <StackLayout Orientation="Horizontal" >
+                            <custom:CircleImage
+                                Aspect="AspectFill"
+                                Source="{Binding img_url}"
+                                WidthRequest="20"
+                                VerticalOptions="Center"/>
+                            <Label 
+                                Text="{Binding user_name}" 
+                                TextColor="Black" 
+                                FontSize="10" 
+                                VerticalOptions="Center" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F8F8F8">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout 
+                HorizontalOptions="FillAndExpand" 
+                BackgroundColor="White"
+                HeightRequest="50">
+                <ImageButton 
+                    BackgroundColor="Transparent"
+                    Source="back1.png" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds=".04,.5" 
+                    Clicked="imgBack_Clicked" 
+                    Padding="10"/>
+                <Label
+                    Text="コラム"
+                    FontSize="18"
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutBounds=".5,.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <ImageButton 
+                    BackgroundColor="Transparent" 
+                    Source="icon_menu"  
+                    AbsoluteLayout.LayoutFlags="PositionProportional" 
+                    AbsoluteLayout.LayoutBounds=".96,.5" 
+                    Clicked="imgMenu_Clicked" 
+                    Padding="10"/>
+            </AbsoluteLayout>
+
+            <sync:SfListView
+                VerticalOptions="FillAndExpand"
+                x:Name="sflist"
+                BackgroundColor="#F8F8F8" 
+                ItemsSource="{Binding Columns}"
+                ItemTemplate="{StaticResource ItemTemplate}"
+                AllowSwiping="True"
+                SwipeOffset="120"
+                SwipeThreshold="30"
+                IsStickyHeader="True"
+                SwipeStarted="ListView_SwipeStarted"
+                SwipeEnded="ListView_SwipeEnded"
+                Swiping="ListView_Swiping" 
+                AutoFitMode="Height">
+                <sync:SfListView.RightSwipeTemplate>
+                    <DataTemplate x:Name="RightSwipeTemplate" >
+                        <Button 
+                            BackgroundColor="#DC595F"
+                            HorizontalOptions="Fill"
+                            VerticalOptions="Fill"
+                            Margin="0,6,20,6" 
+                            BorderRadius="7" 
+                            Text="削除" 
+                            TextColor="White"
+                            Clicked="BtnDel_Clicked"
+                            x:Name="btnDel"
+                            CommandParameter="{Binding column_id}"/>
+                    </DataTemplate>
+                </sync:SfListView.RightSwipeTemplate>
+            </sync:SfListView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

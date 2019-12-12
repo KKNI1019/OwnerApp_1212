@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.ZeroRegisterStartPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="WhiteSmoke">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White">
+                <ImageButton
+                    Source="back1.png"
+                    x:Name="back_btn"
+                    Clicked="Back_btn_Clicked"
+                    BackgroundColor="Transparent"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0,0.5"/>
+                <Label
+                    Text="Zero管理"
+                    TextColor="Black"
+                    FontSize="16"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="15*" />
+                    <RowDefinition Height="15*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                </Grid.ColumnDefinitions>
+                <Image
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Source="logo_full.png">
+                </Image>
+                <StackLayout 
+                    Grid.Column="0"
+                    Grid.Row="3">
+                    <AbsoluteLayout
+                    VerticalOptions="CenterAndExpand">
+                        <ImageButton
+                            Source="btn_regist.png"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            AbsoluteLayout.LayoutBounds="0.5,0.5"
+                            BackgroundColor="Transparent"
+                            x:Name="start_btn"
+                            Clicked="Start_btn_Clicked">
+                        </ImageButton>
+                    </AbsoluteLayout>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

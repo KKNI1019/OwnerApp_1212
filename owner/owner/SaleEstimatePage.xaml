@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.SaleEstimatePage"
+             xmlns:local="clr-namespace:owner"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F8F8F8">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="White"
+                HeightRequest="50">
+                <ImageButton
+                    Padding="10"
+                    BackgroundColor="Transparent"
+                    Source="back1"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds=".01,.5"
+                    Clicked="imgBack_Clicked"/>
+                <Label 
+                    Text="簡単売却査定"
+                    FontSize="16"
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutBounds=".5,.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            </AbsoluteLayout>
+            <ScrollView>
+                <StackLayout Padding="30,20">
+                    <Label
+					Text="エリア*"
+                    TextColor="#A0A0A0"
+					FontSize="13"/>
+                    <Grid
+                    HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame
+                        Grid.Column="0"
+                        BorderColor="#A0A0A0"
+                        BackgroundColor="White"
+                            HorizontalOptions="FillAndExpand"
+                        Padding="10,5">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="lbl_state_tap"/>
+                                </StackLayout.GestureRecognizers>
+                                <Label x:Name="lbl_state" VerticalOptions="Center" FontSize="15"
+                                       TextColor="Black"/>
+                                <Image Source="dropdown.png" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"
+                                       HeightRequest="15" Aspect="AspectFit"/>
+                            </StackLayout>
+                            
+                        </Frame>
+                        <Picker x:Name="picker_state"
+                                IsVisible="False"
+                                SelectedIndexChanged="Picker_state_SelectedIndexChanged"
+                                TextColor="Black"/>
+                        <Frame
+                        Grid.Column="1"
+                        BorderColor="#A0A0A0"
+                        BackgroundColor="White"
+                             HorizontalOptions="FillAndExpand"
+                        Padding="10, 5">
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="5">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="lbl_city_tap"/>
+                                </StackLayout.GestureRecognizers>
+                                <Label x:Name="lbl_city" VerticalOptions="Center" TextColor="Black" FontSize="15"/>
+                                <Image Source="dropdown.png" VerticalOptions="CenterAndExpand" HorizontalOptions="EndAndExpand"
+                                        HeightRequest="12" Aspect="AspectFit"/>
+                            </StackLayout>
+                            
+                        </Frame>
+                        <Picker x:Name="picker_city"
+                                IsVisible="False"
+                                SelectedIndexChanged="Picker_city_SelectedIndexChanged"
+                                TextColor="Black"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                        Grid.Column="0"
+                        Margin="0,6,0,0"
+					    Text="最寄り駅*"
+                        TextColor="#A0A0A0"
+					    FontSize="13"/>
+                        <Label
+                        Grid.Column="1"
+                        Margin="0,6,0,0"
+					    Text="駅徒歩*"
+                        TextColor="#A0A0A0"
+					    FontSize="13"/>
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Frame
+                        Grid.Column="0"
+                        BorderColor="#A0A0A0"
+                        BackgroundColor="White"
+					    Padding="5">
+                            <local:BorderlessEntry
+						    HorizontalOptions="Fill"
+						    TextColor="Black"
+						    x:Name="around_station"
+                            Text=""/>
+                        </Frame>
+                        <StackLayout
+                        Orientation="Horizontal"
+                        HorizontalOptions="FillAndExpand"
+                        Grid.Column="1">
+                            <Frame
+                            BorderColor="#A0A0A0"
+                            BackgroundColor="White"
+					        Padding="5"
+                            HorizontalOptions="FillAndExpand">
+                                <local:BorderlessEntry
+						        HorizontalOptions="Fill"
+						        TextColor="Black"
+						        x:Name="walking_time"
+                                Text=""
+                                Keyboard="Numeric"/>
+                            </Frame>
+                            <Label
+                            Text="分"
+                            FontSize="16"
+                            TextColor="Black"
+                            HorizontalOptions="End"
+                            VerticalOptions="End"/>
+                        </StackLayout>
+
+                    </Grid>
+                    <Label
+                    Margin="0,6,0,0"
+					Text="家賃*"
+                    TextColor="#A0A0A0"
+					FontSize="13"/>
+                    <Frame
+                    BorderColor="#A0A0A0"
+                    BackgroundColor="White"
+					Padding="5">
+                        <local:BorderlessEntry
+						HorizontalOptions="Fill"
+						TextColor="#327BC4"
+						MaxLength="10"
+                        Text=""
+                        FontSize="45"
+						Keyboard="Numeric"
+						FlowDirection="RightToLeft"
+						x:Name="rental_income"
+                        IsTabStop="False"/>
+                    </Frame>
+                    <Label
+                    Margin="0,6,0,0"
+					Text="管理費・終戦積立金等*"
+                    TextColor="#A0A0A0"
+					FontSize="13"/>
+                    <Frame
+                    BorderColor="#A0A0A0"
+                    BackgroundColor="White"
+					Padding="5">
+                        <local:BorderlessEntry
+						HorizontalOptions="Fill"
+						TextColor="#EA4343"
+                        FontSize="40"
+						MaxLength="10"
+						Keyboard="Numeric"
+                        Text=""
+						FlowDirection="RightToLeft"
+						x:Name="admin_expenses"
+                        IsTabStop="False"/>
+                    </Frame>
+                    <StackLayout
+                    Margin="0,20,0,0">
+                        <AbsoluteLayout
+                    VerticalOptions="CenterAndExpand">
+                            <ImageButton
+                            Source="btn_sale.png"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            AbsoluteLayout.LayoutBounds="0.5,0.5"
+                            BackgroundColor="Transparent"
+                            x:Name="sale_btn"
+                            Clicked="Sale_btn_Clicked">
+                            </ImageButton>
+                        </AbsoluteLayout>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

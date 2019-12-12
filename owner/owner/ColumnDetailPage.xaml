@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:custom="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             x:Class="owner.ColumnDetailPage"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#F8F8F8">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout HorizontalOptions="FillAndExpand" 
+                            BackgroundColor="White" 
+                            HeightRequest="50">
+                <ImageButton Padding="10" 
+                             BackgroundColor="Transparent"
+                             Source="back1.png"  
+                             AbsoluteLayout.LayoutFlags="PositionProportional"
+                             AbsoluteLayout.LayoutBounds=".01,.5"
+                             Clicked="imgBack_Clicked"/>
+                <Label Text="コラム" 
+                       FontSize="18" 
+                       TextColor="Black" 
+                       AbsoluteLayout.LayoutBounds=".5,.5"
+                       AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <ImageButton Padding="10" 
+                             BackgroundColor="Transparent"
+                             Source="icon_menu" 
+                             AbsoluteLayout.LayoutFlags="PositionProportional"
+                             AbsoluteLayout.LayoutBounds=".99,.5"
+                             Clicked="btnMenu_Clicked"/>
+            </AbsoluteLayout>
+            <ScrollView VerticalOptions="FillAndExpand">
+                <StackLayout VerticalOptions="FillAndExpand">
+                    <StackLayout Margin="10">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="HighlightTapGestureRecognizer_Tapped"/>
+                        </StackLayout.GestureRecognizers>
+                        <Frame OutlineColor="#A0A0A0"
+                               BorderColor="#A0A0A0"
+                               CornerRadius="7"
+                               VerticalOptions="FillAndExpand">
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding date,StringFormat='{}{0:yyyy/MM/dd}'}" 
+                                           FontSize="12"
+                                           VerticalOptions="Center"/>
+                                    <Image Source="img_new.png"
+                                           HeightRequest="18" 
+                                           IsVisible="{Binding IsVisible}"
+                                           VerticalOptions="Center"/>
+                                </StackLayout>
+                                <Label Text="{Binding col_title}" 
+                                       TextColor="Black" 
+                                       FontSize="14" />
+                                <StackLayout Orientation="Horizontal" >
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                                    </StackLayout.GestureRecognizers>
+                                    <custom:CircleImage x:Name="imgWritter"
+                                                        Aspect="AspectFill"
+                                                        Source="{Binding img_url}" 
+                                                        WidthRequest="22" 
+                                                        VerticalOptions="Center"/>
+                                    <Label x:Name="lbl_writterName"
+                                           Text="{Binding user_name}"
+                                           TextColor="Black"
+                                           FontSize="12"
+                                           VerticalOptions="Center" />
+                                </StackLayout>
+                                <Image BackgroundColor="#A0A0A0"
+                                       HeightRequest="1"
+                                       Margin="-20,6" />
+                                <Label Text="{Binding col_content}" 
+                                       TextColor="Black"/>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout VerticalOptions="EndAndExpand" 
+                                 BackgroundColor="#161414"
+                                 Opacity="0.6"
+                                 Padding="20,6"
+                                 x:Name="lay_highlight">
+                        <Label Text="おすすめ関連記事" 
+                               TextColor="White"/>
+                        <Frame OutlineColor="#A0A0A0"
+                               BorderColor="#A0A0A0"
+                               VerticalOptions="Center"
+                               CornerRadius="10">
+                            <StackLayout x:Name="article">
+                                <Label Text="{Binding col_title}" 
+                                       TextColor="Black" 
+                                       FontSize="14" />
+                                <StackLayout Orientation="Horizontal">
+                                    <custom:CircleImage Source="{Binding img_url}" 
+                                                        Aspect="AspectFill"
+                                                        WidthRequest="22"
+                                                        VerticalOptions="Center"/>
+                                    <Label Text="{Binding user_name}"
+                                           TextColor="Black" 
+                                           FontSize="12" 
+                                           VerticalOptions="Center" />
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

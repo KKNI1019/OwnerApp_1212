@@ -1,0 +1,796 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.FeeCalculatePage1"
+             BackgroundColor="#F8F8F8"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             xmlns:local="clr-namespace:owner.Model"
+             xmlns:_local="clr-namespace:owner"
+             NavigationPage.HasNavigationBar="false">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="axisLabelTemplate">
+                <Label WidthRequest="50" HeightRequest="20" HorizontalTextAlignment="Center" BackgroundColor="Blue" Text="{Binding }" TextColor="White" FontSize ="15" />
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HorizontalOptions="FillAndExpand" 
+                BackgroundColor="White" 
+                HeightRequest="50">
+                <ImageButton 
+                    BackgroundColor="Transparent" 
+                    Source="back1" 
+                    Padding="10" 
+                    AbsoluteLayout.LayoutFlags="PositionProportional" 
+                    AbsoluteLayout.LayoutBounds=".01,.5" 
+                    Clicked="imgBack_Clicked"/>
+                <Label 
+                    Text="簡単収支計算" 
+                    TextColor="Black"
+                    FontSize="Medium"
+                    AbsoluteLayout.LayoutBounds=".5,.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"/>
+                <ImageButton
+                    Source="imgAdd.png"
+                    AbsoluteLayout.LayoutFlags="PositionProportional" 
+                    AbsoluteLayout.LayoutBounds="0.99,.5"
+                    BackgroundColor="Transparent"
+                    Padding="10"
+                    x:Name="AddBuilding_Btn"
+                    Clicked="AddBuilding_Btn_Clicked"/>
+            </AbsoluteLayout>
+            <ScrollView
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Orientation="Vertical"
+                VerticalScrollBarVisibility="Never">
+                <StackLayout
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Orientation="Vertical"                    
+                    Padding="10, 5">
+                    <StackLayout
+                        Orientation="Vertical"
+                        VerticalOptions="Fill"
+                        HorizontalOptions="FillAndExpand">
+                        <Frame
+                            BackgroundColor="White"
+                            HasShadow="False"
+                            BorderColor="#F8F8F8"
+                            CornerRadius="5"
+                            Padding="0"
+                            VerticalOptions="Fill">
+                            <StackLayout
+                                BackgroundColor="Transparent"
+                                Padding="5"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="Fill">
+                                <Grid
+                                    HorizontalOptions="FillAndExpand"
+                                    VerticalOptions="Fill">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.5*"/>
+                                        <ColumnDefinition Width="0.5*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout
+                                        Grid.Column="0"
+                                        HorizontalOptions="FillAndExpand">
+                                        <Grid
+                                            HorizontalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.4*"/>
+                                                <ColumnDefinition Width="0.2*"/>
+                                                <ColumnDefinition Width="0.4*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label
+                                                Text="X年後の&#10;代行手数料"
+                                                TextColor="Black"
+                                                FontSize="10"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Grid.Column="0"/>
+                                            <Label
+                                                Text="合計"
+                                                VerticalOptions="Center"
+                                                TextColor="Black"
+                                                FontSize="10"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Grid.Column="1"/>
+                                            <Label
+                                                TextColor="Black"
+                                                FontSize="10"
+                                                Grid.Column="2"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="CenterAndExpand">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span x:Name="span_total_agency"/>
+                                                        <Span Text="円"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </Grid>
+                                        <Grid
+                                            HorizontalOptions="FillAndExpand">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.4*"/>
+                                                <ColumnDefinition Width="0.2*"/>
+                                                <ColumnDefinition Width="0.4*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Frame
+                                                BorderColor="#FF9D00"
+                                                BackgroundColor="Transparent"
+                                                Padding="0">
+                                                <Label
+                                                    Text="budiを&#10;利用後"
+                                                    TextColor="#FF9D00"
+                                                    FontSize="10"
+                                                    HorizontalOptions="CenterAndExpand"
+                                                    Grid.Column="0"/>
+                                            </Frame>
+                                            <Label
+                                                Text="合計"
+                                                VerticalOptions="Center"
+                                                TextColor="Black"
+                                                FontSize="10"
+                                                HorizontalOptions="CenterAndExpand"
+                                                Grid.Column="1"/>
+                                            <Label
+                                                TextColor="Black"
+                                                FontSize="10"
+                                                VerticalOptions="Center"
+                                                Grid.Column="2"
+                                                HorizontalOptions="CenterAndExpand">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <Span x:Name="span_total_budifee"/>
+                                                        <Span Text="円"/>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </Grid>
+                                    </StackLayout>
+                                    <StackLayout
+                                        Grid.Column="1"
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Orientation="Horizontal"
+                                        Padding="5,0">
+                                        <Image
+                                            Source="img_right.png"
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="Start"
+                                            BackgroundColor="Transparent"/>
+                                        <Label
+                                            Text="手数料の差額"
+                                            TextColor="Black"
+                                            FontSize="10"
+                                            VerticalOptions="CenterAndExpand"
+                                            HorizontalOptions="StartAndExpand"/>
+                                        <Label
+                                            TextColor="#327BC4"
+                                            FontSize="10"
+                                            Grid.Column="1"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="CenterAndExpand">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="100000" x:Name="span_total_diff"/>
+                                                    <Span Text="円"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                        <StackLayout
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Fill">
+                            <Image
+                                Source="graph_note1.png"
+                                BackgroundColor="Transparent"
+                                Margin="0,3"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="Fill"
+                        HeightRequest="230">
+                        <!--<StackLayout.Resources>
+                            <ResourceDictionary>
+                                <local:ZoomPositionToValueConverter x:Key="zoomPositionConverter" />
+                            </ResourceDictionary>
+                        </StackLayout.Resources>-->
+                        <chart:SfChart x:Name="chart" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <chart:SfChart.BindingContext>
+                                <local:ChatViewModel x:Name="viewModel"/>
+                            </chart:SfChart.BindingContext>
+                            <chart:SfChart.PrimaryAxis>
+
+                                <chart:CategoryAxis 
+                                    x:Name="Primary" 
+                                    AutoScrollingDelta="5"
+                                    Interval="1"
+                                    AutoScrollingMode="Start"
+                                    ShowTrackballInfo="True"
+                                    TrackballLabelTemplate="{StaticResource axisLabelTemplate}">
+                                    <chart:CategoryAxis.TrackballLabelStyle>
+                                        <chart:ChartTrackballAxisLabelStyle AxisLabelAlignment="Near"/>
+                                    </chart:CategoryAxis.TrackballLabelStyle>
+                                    <chart:CategoryAxis.Title>
+                                        <chart:ChartAxisTitle Text="(年)"
+                                                              FontSize="8"
+                                                              Margin="-2"/>
+                                    </chart:CategoryAxis.Title>
+                                    
+                                </chart:CategoryAxis>
+                                
+                            </chart:SfChart.PrimaryAxis>
+                            <chart:SfChart.SecondaryAxis>
+                                <chart:NumericalAxis 
+                                    x:Name="Secondary"
+                                    Interval="100">
+                                    <chart:CategoryAxis.Title>
+                                        <chart:ChartAxisTitle Text="(円)"
+                                                              FontSize="8"
+                                                              Margin="-2"/>
+                                    </chart:CategoryAxis.Title>
+                                </chart:NumericalAxis>
+                            </chart:SfChart.SecondaryAxis>
+                            <chart:SfChart.Series >
+                                <chart:LineSeries ShowTrackballInfo="True">
+                                    
+                                </chart:LineSeries>
+                                <chart:FastLineSeries 
+                                    ItemsSource="{Binding Data}" 
+                                    XBindingPath="XValue" 
+                                    YBindingPath="YValue" 
+                                    EnableTooltip="True" 
+                                    EnableDataPointSelection="True"
+                                    Color="Red">
+                                    <chart:FastLineSeries.DataMarker>
+                                        <chart:ChartDataMarker ShowLabel="False" 
+						                   ShowMarker="True"
+						                   MarkerType="Ellipse"
+						                   MarkerWidth="10" 
+						                   MarkerHeight="10"
+						                   MarkerColor="Red" 
+						                   MarkerBorderColor="Red"
+						                   MarkerBorderWidth="2"/>
+                                    </chart:FastLineSeries.DataMarker>
+                                </chart:FastLineSeries>
+                                <chart:FastLineSeries 
+                                    ItemsSource="{Binding Data1}" 
+                                    XBindingPath="XValue" 
+                                    YBindingPath="YValue" 
+                                    EnableTooltip="True" 
+                                    EnableDataPointSelection="True"
+                                    Color="Orange">
+                                    <chart:FastLineSeries.DataMarker>
+                                        <chart:ChartDataMarker ShowLabel="False" 
+						                   ShowMarker="True"
+						                   MarkerType="Ellipse"
+						                   MarkerWidth="10" 
+						                   MarkerHeight="10"
+						                   MarkerColor="Orange" 
+						                   MarkerBorderColor="Orange"
+						                   MarkerBorderWidth="2"/>
+                                    </chart:FastLineSeries.DataMarker>
+                                </chart:FastLineSeries>
+                            </chart:SfChart.Series>
+                            
+                            <chart:SfChart.ChartBehaviors>
+                                <chart:ChartTrackballBehavior ShowLabel="True" ShowLine="True" LabelDisplayMode="NearestPoint">
+                                    <chart:ChartTrackballBehavior.LabelStyle>
+                                        <chart:ChartTrackballLabelStyle TextColor="White" BackgroundColor="DarkGray"
+                                                                        BindingContext ="2019" x:Name="lbl_track"/>
+                                    </chart:ChartTrackballBehavior.LabelStyle>
+                                    <chart:ChartTrackballBehavior.LineStyle>
+                                        <chart:ChartLineStyle StrokeColor="Orange" StrokeWidth="2"/>
+                                    </chart:ChartTrackballBehavior.LineStyle>
+                                </chart:ChartTrackballBehavior>
+                            </chart:SfChart.ChartBehaviors>
+                            <!--<chart:SfChart.ChartBehaviors>
+                                <chart:ChartZoomPanBehavior />
+                            </chart:SfChart.ChartBehaviors>-->
+                        </chart:SfChart>
+                        <!--<Slider 
+                            Minimum="0"
+                            Maximum="1"
+                            Value="{Binding ZoomPosition, Source={x:Reference Primary}, Mode=TwoWay}"/>-->
+                        <_local:CustomSlider 
+                            Minimum="0"
+                            Maximum="1"
+                            Value="{Binding ZoomPosition, Source={x:Reference Primary}, Mode=TwoWay}"
+                            MaxColor="DarkGray" 
+                            MinColor="DarkGray" 
+                            ThumbColor="DarkGray" 
+                            ThumbImage="slider.png"/>
+                    </StackLayout>
+                    <Frame
+                        BorderColor="#A0A0A0"
+                        CornerRadius="5"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        BackgroundColor="#F8F8F8"
+                        Padding="0"
+                        HasShadow="False">
+                        <StackLayout
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand"
+                            Padding="5">
+                            <Label
+                                Text="レジデンシャル六本木"
+                                x:Name="lbl_buildingName"
+                                TextColor="Black"/>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Source="month_balance.png"
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Grid.Column="0"/>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span x:Name="month_balance" />
+                                            <Span Text="円"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                                <Image
+                                    Source="year_balance.png"
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Grid.Column="2"/>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Grid.Column="3"
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Center">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span x:Name="year_balance"/>
+                                            <Span Text="円"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Grid>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Source="income1.png"
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Grid.Column="0"/>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Text="家賃"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+                                <Frame
+                                    BackgroundColor="#F8F8F8"
+                                    HasShadow="False"
+                                    BorderColor="#F8F8F8"
+                                    HorizontalOptions="Fill"
+                                    Padding="0"
+                                    Grid.Column="2">
+                                    <StackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Padding="3">
+                                        <Label
+                                            TextColor="Black"
+                                            FontSize="10"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span x:Name="year_rental_income"/>
+                                                    <Span Text="円"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Source="excome1.png"
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Grid.Column="0"/>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Text="管理費/修繕費"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+                                <Frame
+                                    BackgroundColor="#F8F8F8"
+                                    HasShadow="False"
+                                    BorderColor="#F8F8F8"
+                                    HorizontalOptions="Fill"
+                                    Padding="0"
+                                    Grid.Column="2">
+                                    <StackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Padding="3">
+                                        <Label
+                                            TextColor="#EA4343"
+                                            FontSize="10"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span x:Name="year_adminFee"/>
+                                                    <Span Text="円"/>
+                                                    <Span Text="/"/>
+                                                    <Span x:Name="year_repairFee"/>
+                                                    <Span Text="円"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Text="代行手数料"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+                                <Frame
+                                    BackgroundColor="#F8F8F8"
+                                    HasShadow="False"
+                                    BorderColor="#F8F8F8"
+                                    HorizontalOptions="Fill"
+                                    Padding="0"
+                                    Grid.Column="2">
+                                    <StackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Padding="3">
+                                        <Label
+                                            TextColor="#EA4343"
+                                            FontSize="10"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span x:Name="year_agencyFee"/>
+                                                    <Span Text="円"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Text="アプリ手数料"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+                                <Frame x:Name="frame_budi_fee"
+                                    BackgroundColor="#DBDBDB"
+                                    HasShadow="False"
+                                    BorderColor="#DBDBDB"
+                                    HorizontalOptions="Fill"
+                                    Padding="0"
+                                    Grid.Column="2">
+                                    <StackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Padding="3">
+                                        <Label
+                                            TextColor="#A0A0A0"
+                                            FontSize="10"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="500"/>
+                                                    <Span Text="円"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Text="固定資産税"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+                                <Frame x:Name="frame_repair_reserve"
+                                    BackgroundColor="#DBDBDB"
+                                    HasShadow="False"
+                                    BorderColor="#DBDBDB"
+                                    HorizontalOptions="Fill"
+                                    Padding="0"
+                                    Grid.Column="2">
+                                    <StackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Padding="3">
+                                        <Label
+                                            Text=" "
+                                            TextColor="#DBDBDB"
+                                            FontSize="10"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Text="その他費用"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+                                <Frame x:Name="frame_other_fee"
+                                    BackgroundColor="#DBDBDB"
+                                    HasShadow="False"
+                                    BorderColor="#DBDBDB"
+                                    HorizontalOptions="Fill"
+                                    Padding="0"
+                                    Grid.Column="2">
+                                    <StackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Padding="3">
+                                        <Label
+                                            Text=" "
+                                            TextColor="#DBDBDB"
+                                            FontSize="10"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Image
+                                    Source="fee_balance_off.png"
+                                    BackgroundColor="Transparent"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"
+                                    Grid.Column="0"/>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Text="ローン返済額"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+                                <Frame x:Name="frame_loan_repay"
+                                    BackgroundColor="#DBDBDB"
+                                    HasShadow="False"
+                                    BorderColor="#DBDBDB"
+                                    HorizontalOptions="Fill"
+                                    Padding="0"
+                                    Grid.Column="2">
+                                    <StackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Padding="3">
+                                        <Label
+                                            Text=" "
+                                            TextColor="#DBDBDB"
+                                            FontSize="10"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Text="融資額"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+                                <Frame x:Name="frame_loan_amount"
+                                    BackgroundColor="#DBDBDB"
+                                    HasShadow="False"
+                                    BorderColor="#DBDBDB"
+                                    HorizontalOptions="Fill"
+                                    Padding="0"
+                                    Grid.Column="2">
+                                    <StackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Padding="3">
+                                        <Label
+                                            Text=" "
+                                            TextColor="#DBDBDB"
+                                            FontSize="10"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Text="年利"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+                                <Frame x:Name="frame_yearly_profit"
+                                    BackgroundColor="#DBDBDB"
+                                    HasShadow="False"
+                                    BorderColor="#DBDBDB"
+                                    HorizontalOptions="Fill"
+                                    Padding="0"
+                                    Grid.Column="2">
+                                    <StackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Padding="3">
+                                        <Label
+                                            Text=" "
+                                            TextColor="#DBDBDB"
+                                            FontSize="10"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                            <Grid
+                                BackgroundColor="Transparent"
+                                HorizontalOptions="FillAndExpand"
+                                VerticalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="25*"/>
+                                    <ColumnDefinition Width="50*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label
+                                    TextColor="Black"
+                                    FontSize="10"
+                                    Text="返済期間"
+                                    Grid.Column="1"
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="Center"/>
+                                <Frame x:Name="frame_repay_period"
+                                    BackgroundColor="#DBDBDB"
+                                    HasShadow="False"
+                                    BorderColor="#DBDBDB"
+                                    HorizontalOptions="Fill"
+                                    Padding="0"
+                                    Grid.Column="2">
+                                    <StackLayout
+                                        HorizontalOptions="FillAndExpand"
+                                        VerticalOptions="FillAndExpand"
+                                        Padding="3">
+                                        <Label
+                                            Text=" "
+                                            TextColor="#DBDBDB"
+                                            FontSize="10"
+                                            HorizontalOptions="End"
+                                            VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

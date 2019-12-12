@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="owner.MyInfoUpdateCompletePage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="WhiteSmoke">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White">
+                <Label
+                    Text="マイページ"
+                    FontSize="16"
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10*" />
+                    <RowDefinition Height="60*" />
+                    <RowDefinition Height="15*" />
+                    <RowDefinition Height="15*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                </Grid.ColumnDefinitions>
+                <StackLayout
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Padding="20,0">
+                    <Label
+                        Text="アップデートが完了しました！"
+                        TextColor="Black"
+                        FontSize="Medium"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        Margin="0,20"/>
+                    <Label
+                        Text="説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文説明文"
+                        TextColor="Black"
+                        FontSize="Default"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"/>
+                </StackLayout>
+                <StackLayout 
+                    Grid.Column="0"
+                    Grid.Row="2">
+                    <AbsoluteLayout
+                    VerticalOptions="CenterAndExpand">
+                        <ImageButton
+                            Source="btn_home.png"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            AbsoluteLayout.LayoutBounds="0.5,0.5"
+                            BackgroundColor="Transparent"
+                            x:Name="home_btn"
+                            Clicked="Home_btn_Clicked">
+                        </ImageButton>
+                    </AbsoluteLayout>
+                    <AbsoluteLayout>
+                        <Label
+                            FontSize="Default"
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                            AbsoluteLayout.LayoutBounds="0.5,0.5"
+                            x:Name="lbl_cancel"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="キャンセル" TextColor="#FF9D00"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </AbsoluteLayout>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

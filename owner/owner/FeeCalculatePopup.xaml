@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+    xmlns:local="clr-namespace:owner"
+    x:Class="owner.FeeCalculatePopup">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn = "400"
+            DurationOut="400"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1"
+            ScaleOut="1"/>
+    </pages:PopupPage.Animation>
+    <Frame 
+        CornerRadius="10"  
+        Padding="30, 20" 
+        BackgroundColor="White" 
+        VerticalOptions="Center" 
+        HasShadow="False"
+        Margin="20, 0">
+        <StackLayout>
+            <input:RadioButtonGroupView x:Name="radio_loan_repay_type"
+                                        SelectedItemChanged="Radio_loan_repay_type_SelectedItemChanged"
+                                    Orientation="Horizontal"
+                                    HorizontalOptions="Center">
+                <input:RadioButton Text="元利均等"
+                               Value="毎月の返済額"
+                               TextFontSize="15"
+                               TextColor="Black"
+                               CircleColor="#A0A0A0" 
+                               Color="#FF9D00"/>
+                <input:RadioButton Text="元金均等"
+                               Value="毎月の返済元金金額"
+                               TextFontSize="15"
+                               TextColor="Black"
+                               CircleColor="#A0A0A0" 
+                               Color="#FF9D00"
+                               Margin="15,0,0,0"/>
+            </input:RadioButtonGroupView>
+            <Frame BorderColor="LightGray"
+                   CornerRadius="3"
+                   Padding="5"
+                   Margin="0,15"
+                   HasShadow="False">
+                <StackLayout>
+                    <Label x:Name="lbl_loan_repay_type"
+                           FontSize="10"/>
+                    <local:BorderlessEditor x:Name="edit_loan_repay_value"
+                                            Keyboard="Numeric"
+                                            TextColor="Black"/>
+                </StackLayout>
+            </Frame>
+            <ImageButton x:Name="btn_input"
+                         BackgroundColor="Transparent"
+                         Source="btn_input.png"
+                         Clicked="Btn_input_Clicked"/>
+        </StackLayout>
+        
+        
+    </Frame>
+</pages:PopupPage>
