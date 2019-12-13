@@ -48,7 +48,7 @@
                 <Label
 				    Grid.Row="2"
 				    Grid.Column="0"
-				    Text="プッシュ通知を許可すると、&#10;お金と時間を節約できます。"
+				    Text="プッシュ通知を許可することによって、&#10;budi conciergeからの大切なお知らせや&#10;ご案内を、リアルタイムで確認できます。"
                     HorizontalTextAlignment="Center"
                     VerticalTextAlignment="Center"
 				    TextColor="Black"

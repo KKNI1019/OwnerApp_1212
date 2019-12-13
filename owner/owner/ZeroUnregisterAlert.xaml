@@ -35,36 +35,46 @@
                 HorizontalOptions="FillAndExpand"
                 Margin="0,-5,0,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="70*" />
-                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="80*" />
+                    <RowDefinition Height="20*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="80*"/>
                 </Grid.ColumnDefinitions>
+
                 <Frame
                     BackgroundColor="White"
                     HasShadow="True"
                     BorderColor="#A0A0A0"
                     Grid.Row="0"
+                    Padding="5"
                     Grid.Column="0"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand">
-                    <StackLayout
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand">
-                        <Image
-                            Source="img_user2.png"
-                            Margin="0,30,0,15"
-                            HorizontalOptions="CenterAndExpand"/>
-                        <Label
-                            Text="解除説明がはいります"
-                            TextColor="Black"
-                            FontSize="Default"
-                            HorizontalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center"
-                            VerticalTextAlignment="Center"/>
-                    </StackLayout>
+                    <ScrollView>
+                        <StackLayout
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <Image
+                                Source="img_user2.png"
+                                Margin="0,30,0,10"
+                                HorizontalOptions="CenterAndExpand"/>
+                            <Label
+                                Text="賃貸管理の解除手続きについて"
+                                TextColor="Black"
+                                FontSize="Default"
+                                HorizontalOptions="CenterAndExpand"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"/>
+                            <Label TextColor="Black"
+                                   FontSize="12"
+                                   HorizontalOptions="Start"
+                                   Text="①管理解除手続き依頼後、弊社より現在の管理会社へご連絡させていただきます。&#10;&#10;②手続きには2つのパターンがあります。&#10;・弊社が手続きを行える場合：&#10;  オーナー様から委任状、解除通知書をいただき弊社が全て対応させていただきます。&#10;・オーナー様が手続きをしていただく場合：&#10;  管理会社によりましては、弊社対応が出来ない場　合が御座います。その際はオーナー様から管理会社へ連絡していただき手続きを行っていただきます。&#10;&#10;③所定の手続き完了後、解除月が決定し弊社へ管理を行う準備が整います。&#10;&#10;※有料会員の月額利用料は、解除手続きの申込みが完了した時点から発生します。&#10;&#10;※管理会社との契約内容によりまして、管理解除までのお時間がかかる場合がございます。&#10;"
+                                   Margin="0,15,0,0"/>
+                        </StackLayout>
+                    </ScrollView>
                 </Frame>
+                
                 <StackLayout x:Name="stack_billing_btns"
                     Grid.Column="0"
                     Grid.Row="1">
@@ -73,7 +83,6 @@
                         BackgroundColor="Transparent"
                         x:Name="btn_cancel_step"
                         Clicked="Btn_cancel_step_Clicked"
-                        Margin="0,20"
                         VerticalOptions="Center">
                     </ImageButton>
                     <Label x:Name="lbl_cancel"

@@ -30,21 +30,25 @@
             </AbsoluteLayout>
             <StackLayout>
                 <Image Source="img_user2.png"
-                        Margin="0,60,0,30"
+                        Margin="0,30,0,10"
                         HorizontalOptions="CenterAndExpand"/>
-                <Label Text="アップデートすると&#10;こんなことができますよ&#10;という説明文"
+                <Label Text="有料版で使えるサービス"
+                       FontSize="16"
                         TextColor="Black"
                         HorizontalOptions="CenterAndExpand"
                         HorizontalTextAlignment="Center"
                         VerticalTextAlignment="Center"/>
-                
+                <Label Text="&#42;Zero管理&#10;&#42;自動収支計算&#91;フルバージョン&#93;&#10;&#42;簡単査定&#42;確定申告に必要な情報の閲覧&#91;フルバージョン&#93;&#10;&#42;入居者アプリとの連動&#10;&#42;ニュース&#91;フルバージョン&#93;&#10;&#42;掲示板&#91;フルバージョン&#93;&#10;&#42;Q&amp;AチャットBot&#10;&#42;掲示板&#91;フルバージョン&#93;"
+                       HorizontalOptions="Start"
+                       TextColor="Black"
+                       Margin="30,15"
+                       FontSize="12"/>
                 <StackLayout>
                     <ImageButton x:Name="btn_payment"
                                  BackgroundColor="Transparent"
                                  Source="btn_update_now.png"
                                  HorizontalOptions="Center"
-                                 Clicked="Btn_payment_Clicked"
-                                 Margin="0,50,0,25"/>
+                                 Clicked="Btn_payment_Clicked"/>
                     <Label x:Name="lbl_cancel"
                                HorizontalTextAlignment="Center"
                                VerticalTextAlignment="Center"

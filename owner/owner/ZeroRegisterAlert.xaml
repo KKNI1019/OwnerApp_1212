@@ -36,8 +36,8 @@
                 HorizontalOptions="FillAndExpand"
                 Margin="0,-5,0,0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="70*" />
-                    <RowDefinition Height="30*" />
+                    <RowDefinition Height="80*" />
+                    <RowDefinition Height="20*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="80*"/>
@@ -46,25 +46,28 @@
                     BackgroundColor="White"
                     HasShadow="True"
                     BorderColor="#A0A0A0"
+                    Padding="5"
                     Grid.Row="0"
                     Grid.Column="0"
                     HorizontalOptions="FillAndExpand"
                     VerticalOptions="FillAndExpand">
-                    <StackLayout
-                        HorizontalOptions="FillAndExpand"
-                        VerticalOptions="FillAndExpand">
-                        <Image
-                            Source="img_user2.png"
-                            Margin="0,30,0,15"
-                            HorizontalOptions="CenterAndExpand"/>
-                        <Label
-                            Text="機能説明がはいります"
-                            TextColor="Black"
-                            FontSize="Default"
-                            HorizontalOptions="CenterAndExpand"
-                            HorizontalTextAlignment="Center"
-                            VerticalTextAlignment="Center"/>
-                    </StackLayout>
+                    <ScrollView>
+                        <StackLayout
+                            HorizontalOptions="FillAndExpand"
+                            VerticalOptions="FillAndExpand">
+                            <Image
+                                Source="img_user2.png"
+                                Margin="0,30,0,15"
+                                HorizontalOptions="CenterAndExpand"/>
+                            <Label
+                                Text="■入居者からの問い合わせChatBotで24時間対応&#10;「水が出ない！」「ガスが漏れているような気がする」日常のトラブルはチャットで解決！オーナーさんに代わってbudi が全部対応&#10;&#10;■更新手続き、退去手続き対応から新規入居者募集まで&#10;退去連絡もアプリから。オーナーさんが了承したら退去日から退去立会い、原状回復工事、そして次の入居募集開始まですべて自動でやっちゃいます！&#10;&#10;■弊社への管理移行の手続きもすべておまかせ&#10;※管理会社によってオーナー様本人の対応しか受け付けない場合もあります&#10;&#10;■弊社への管理移行の手続きもすべておまかせ&#10;※管理会社によってオーナー様本人の対応しか受け付けない場合もあります&#10;&#10;月額５００円有料怪異にするとすべての機能を利用可能！管理手数料はゼロ円！その他すべての便利な機能もフルバージョンでご利用できます！&#10;"
+                                TextColor="Black"
+                                FontSize="12"
+                                HorizontalOptions="Start"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Center"/>
+                        </StackLayout>
+                    </ScrollView>
                 </Frame>
                 <StackLayout 
                     Grid.Column="0"
@@ -74,11 +77,10 @@
                         BackgroundColor="Transparent"
                         x:Name="start_btn"
                         Clicked="Start_btn_Clicked"
-                        Margin="0,20"
+                        Margin="0,10,0,0"
                         VerticalOptions="Center">
                     </ImageButton>
                     <Label
-                        FontSize="Default"
                         x:Name="lbl_cancel"
                         VerticalOptions="Center"
                         HorizontalTextAlignment="Center"
