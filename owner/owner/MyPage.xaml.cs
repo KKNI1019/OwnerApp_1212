@@ -148,11 +148,13 @@ namespace owner
                                 photo.URL = Constants.AGREEMENT_IMAGE_URL_PREFIX + resultMsg.agreement_data[i].agreement_image;
                                 photoList.Add(photo);
                             }
-
                             photoBrowser.Photos = photoList;
                             photoBrowser.Show();
                         }
-
+                        else
+                        {
+                            await DisplayAlert("", "管理委託契約した建物が存在しません。", "はい");
+                        }
                     }
                     else
                     {

@@ -78,7 +78,7 @@ namespace owner
 
                 try
                 {
-                    var request = await cl.PostAsync(Constants.SERVER_BASE_URL + "email_confirm", formcontent);
+                    var request = await cl.PostAsync(Constants.SERVER_BASE_URL + "resend_code", formcontent);
                     request.EnsureSuccessStatusCode();
                     var response = await request.Content.ReadAsStringAsync();
                     ResponseMsg resultMsg = JsonConvert.DeserializeObject<ResponseMsg>(response);

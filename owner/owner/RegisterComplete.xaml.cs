@@ -334,7 +334,7 @@ namespace owner
                     {
                         loadingbar.IsRunning = false;
 
-                        await DisplayAlert("", resultMsg.resp, "はい");
+                        await DisplayAlert("", resultMsg.message, "はい");
                     }
                 }
                 catch
