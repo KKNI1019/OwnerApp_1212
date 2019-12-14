@@ -99,7 +99,7 @@ namespace owner
 
         private async void FaqPage_clicked()
         {
-            await Navigation.PushAsync(new PripacyPage());
+            await Navigation.PushAsync(new QuizPage());
             await PopupNavigation.Instance.PopAsync();
         }
 

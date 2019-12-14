@@ -93,7 +93,7 @@ namespace owner
 
         private async void Goto_FAQPage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new PripacyPage());
+            await Navigation.PushAsync(new QuizPage());
         }
 
         private async void EditProfile_Clicked()

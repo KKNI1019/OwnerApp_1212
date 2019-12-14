@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:owner="clr-namespace:owner"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="owner.QuizPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="WhiteSmoke">
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White"
+                Margin="0">
+                <Label x:Name="lbl_title"
+                    Text="問い合わせフォーム"
+                    FontSize="16"
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+            <ScrollView>
+                <StackLayout VerticalOptions="FillAndExpand"
+                             Margin="0,-6,0,0"
+                             Padding="30,0">
+                    <Label Text="氏名"
+                           TextColor="DarkGray"
+                           Margin="0,40,0,0"
+                           FontSize="12"/>
+                    <Frame CornerRadius="5"
+                           BorderColor="DarkGray"
+                           Padding="15,5"
+                           BackgroundColor="White"
+                           HasShadow="False">
+                        <owner:BorderlessEntry x:Name="ent_name"
+                                               TextColor="Black"
+                                               FontSize="15"
+                                               Text=" "/>
+                    </Frame>
+                    <Label Text="メールアドレス"
+                           TextColor="DarkGray"
+                           Margin="0,10,0,0"
+                           FontSize="12"/>
+                    <Frame CornerRadius="5"
+                           BorderColor="DarkGray"
+                           Padding="15,5"
+                           BackgroundColor="White"
+                           HasShadow="False">
+                        <owner:BorderlessEntry x:Name="ent_email"
+                                               TextColor="Black"
+                                               FontSize="15"
+                                               Text=" "/>
+                    </Frame>
+                    <Label Text="お問い合わせ内容"
+                           TextColor="DarkGray"
+                           Margin="0,10,0,0"
+                           FontSize="12"/>
+                    <Frame CornerRadius="5"
+                           BorderColor="DarkGray"
+                           Padding="15,5"
+                           BackgroundColor="White"
+                           HasShadow="False">
+                        <owner:BorderlessEditor x:Name="ent_question"
+                                               TextColor="Black"
+                                               FontSize="15"
+                                               AutoSize="TextChanges"
+                                               Text=" "/>
+                    </Frame>
+                    <ImageButton Source="btn_send.png"
+                                 Margin="0,30"
+                                 BackgroundColor="Transparent"
+                                 x:Name="btn_send"
+                                 Clicked="Btn_send_Clicked"/>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

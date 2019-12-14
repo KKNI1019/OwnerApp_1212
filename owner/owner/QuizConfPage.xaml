@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="owner.QuizConfPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout
+                HeightRequest="40"
+                Padding="15, 5"
+                BackgroundColor="White"
+                Margin="0">
+                <ImageButton
+                    Source="back1.png"
+                    x:Name="back_btn"
+                    Clicked="Btn_back_Clicked"
+                    BackgroundColor="Transparent"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0,0.5"/>
+                <Label x:Name="lbl_title"
+                    Text="問い合わせフォーム"
+                    FontSize="16"
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+				    AbsoluteLayout.LayoutBounds="0.5,0.5"/>
+            </AbsoluteLayout>
+            <StackLayout BackgroundColor="WhiteSmoke"
+                         VerticalOptions="FillAndExpand"
+                         Margin="0,-6,0,30"
+                         Padding="30,0">
+                <Label VerticalOptions="CenterAndExpand"
+                       Text="お問い合わせありがとうございました。&#10;budi conciergeスタッフから折り返し連絡いたしますので、今しばらくお待ち下さい"
+                       TextColor="Black"
+                       HorizontalTextAlignment="Start"
+                       FontSize="12"/>
+                <ImageButton x:Name="btn_gohomepage"
+                             Clicked="Btn_gohomepage_Clicked"
+                             BackgroundColor="Transparent"
+                             VerticalOptions="EndAndExpand"
+                             Source="btn_back.png"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

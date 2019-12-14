@@ -183,6 +183,12 @@
     <EmbeddedResource Update="PripacyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="QuizConfPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="QuizPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="RegisterComplete.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -394,6 +400,12 @@
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="PripacyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="QuizConfPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </None>
+    <None Update="QuizPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </None>
     <None Update="RegisterComplete.xaml">
