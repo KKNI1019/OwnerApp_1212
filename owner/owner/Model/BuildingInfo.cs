@@ -24,7 +24,7 @@ namespace owner.Model
 
 
         public int monthly_balance { get; set; }
-        public double yearly_balance { get; set; }
+        public string yearly_balance { get; set; }
         public int yearly_rental_income { get; set; }
         public int yearly_admin_expense { get; set; }
         public int yearly_repair_reserve { get; set; }
@@ -39,9 +39,9 @@ namespace owner.Model
         public ObservableCollection<ChatModel> Data3 { get; set; }
         public ObservableCollection<ChatModel> Data4 { get; set; }
 
-        public double sale_loss { get; set; }
-        public double sale_amount { get; set; }
-        public double remaining_amount { get; set; }
+        public string sale_loss { get; set; }
+        public string sale_amount { get; set; }
+        public string remaining_amount { get; set; }
 
     }
 }

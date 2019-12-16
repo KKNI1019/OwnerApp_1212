@@ -5,7 +5,6 @@
 	<key>UIDeviceFamily</key>
 	<array>
 		<integer>1</integer>
-		<integer>2</integer>
 	</array>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleLightContent</string>
@@ -36,8 +35,6 @@
 	<string>(not set)</string>
 	<key>CFBundleName</key>
 	<string>owner</string>
-	<key>XSAppIconAssets</key>
-	<string>Assets.xcassets/AppIcons.appiconset</string>
 	<key>Privacy - Camera Usage Description</key>
 	<string>This app needs access to the camera to scan barcodes and take photos</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -55,5 +52,7 @@
 	</dict>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>XSAppIconAssets</key>
+	<string>Assets.xcassets/AppIcons1.appiconset</string>
 </dict>
 </plist>

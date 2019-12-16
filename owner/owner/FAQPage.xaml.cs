@@ -98,7 +98,7 @@ namespace owner
                     var botMessage = messages.Last().Text;
                     if (botMessage == "No QnA Maker answers were found.")
                     {
-                        botMessage = "Sorry.\nI have no good idea with your question.\n\nPlease call 09012345678 and you can get answer.";
+                        botMessage = "※専用アプリにご加入いただきます。アプリ利用料金（物件一戸数月額500円）。\n更新料がある物件の場合は更新料の半月分を更新代行手数料としてお支払いいただきます。";
                     }
 
                     msgItem.Add(new MessageItem

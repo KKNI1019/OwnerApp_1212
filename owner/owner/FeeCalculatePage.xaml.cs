@@ -40,7 +40,7 @@ namespace owner
                     tempbuilding.yearly_property_tax = Global.Buildings[i].estate_property_tax;
                     tempbuilding.yearly_other_fee = Global.Buildings[i].yearly_other_fee;
                     tempbuilding.monthly_balance = Global.Buildings[i].rental_income - Global.Buildings[i].admin_expense - Global.Buildings[i].repair_reserve - Global.Buildings[i].program_fee - Global.Buildings[i].estate_property_tax - Global.Buildings[i].yearly_other_fee;
-                    tempbuilding.yearly_balance = tempbuilding.monthly_balance * 12;
+                    tempbuilding.yearly_balance = (tempbuilding.monthly_balance * 12).ToString();
                     tempbuilding.estate_loan_repay = Global.Buildings[i].estate_loan_repay;
                     tempbuilding.estate_loan_amount = Global.Buildings[i].estate_loan_amount;
                     tempbuilding.estate_yearly_profit = Global.Buildings[i].estate_yearly_profit;
@@ -71,10 +71,10 @@ namespace owner
                         double balance = (rent - repair - admin - tax - App.programm_fee)*12;
                         tempbuilding.Data4.Add(new ChatModel(j, balance));
 
-                        tempbuilding.sale_amount = (rent - admin - repair) * 12 / App.income_rate;
-                        tempbuilding.remaining_amount = Global.Buildings[i].estate_loan_repay - interest - origin_amount;
-                        tempbuilding.yearly_balance = rent - repair - admin - tax - App.programm_fee;
-                        tempbuilding.sale_loss = tempbuilding.sale_amount - tempbuilding.remaining_amount - tempbuilding.yearly_balance;
+                        tempbuilding.sale_amount = String.Format("{0:0.##}", (rent - admin - repair) * 12 / App.income_rate); 
+                        tempbuilding.remaining_amount = String.Format("{0:0.##}", Global.Buildings[i].estate_loan_repay - interest - origin_amount) ;
+                        tempbuilding.yearly_balance = String.Format("{0:0.##}", rent - repair - admin - tax - App.programm_fee); 
+                        tempbuilding.sale_loss = String.Format("{0:0.##}", Convert.ToDouble(tempbuilding.sale_amount) - Convert.ToDouble(tempbuilding.remaining_amount) - Convert.ToDouble(tempbuilding.yearly_balance));
 
                         rent *= 0.99;
                     }

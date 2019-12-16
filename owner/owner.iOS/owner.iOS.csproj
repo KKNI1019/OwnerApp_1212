@@ -29,11 +29,10 @@
     <MtouchLink>None</MtouchLink>
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Distribution</CodesignKey>
-    <CodesignProvision>
-    </CodesignProvision>
+    <CodesignProvision>Budi Owner Provisioning Profile</CodesignProvision>
     <CodesignExtraArgs />
     <CodesignResourceRules />
-    <CodesignEntitlements />
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
     <DebugType>none</DebugType>
@@ -72,8 +71,11 @@
     <WarningLevel>4</WarningLevel>
     <MtouchArch>ARM64</MtouchArch>
     <ConsolePause>false</ConsolePause>
-    <CodesignKey>iPhone Developer</CodesignKey>
+    <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <BuildIpa>true</BuildIpa>
+    <IpaPackageName>com.xamarin.budi.owner</IpaPackageName>
+    <CodesignProvision>Budi Owner Provisioning Profile</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Ad-Hoc|iPhone' ">
     <DebugType>none</DebugType>
@@ -127,61 +129,61 @@
     <BundleResource Include="Resources\owner_city.db" />
   </ItemGroup>
   <ItemGroup>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Contents.json">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon1024.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon1024.PNG">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon120.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon120.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon1201.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon1201.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon152.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon152.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon167.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon167.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon180.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon180.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon20.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon29.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon29.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon40.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon40.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon401.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon401.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon402.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon402.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon58.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon58.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon581.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon581.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon60.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon60.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon76.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon76.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon80.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon80.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon801.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon801.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcons.appiconset\Icon87.png">
+    <ImageAsset Include="Assets.xcassets\AppIcons1.appiconset\Icon87.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\LaunchImages.launchimage\Contents.json">

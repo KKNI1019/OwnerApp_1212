@@ -19,18 +19,6 @@
 	<key>STORAGE_BUCKET</key>
 	<string>budi-concierge.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
-	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
-	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
-	<key>IS_GCM_ENABLED</key>
-	<true></true>
-	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
-	<key>GOOGLE_APP_ID</key>
-	<string>1:814887531167:ios:0de02e7b464eecf642a8aa</string>
-	<key>DATABASE_URL</key>
-	<string>https://budi-concierge.firebaseio.com</string>
+	<false/>
 </dict>
 </plist>
