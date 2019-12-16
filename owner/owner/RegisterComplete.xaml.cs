@@ -38,7 +38,7 @@ namespace owner
 
         private async void OnLabelClicked()
         {
-            await Navigation.PushAsync(new PripacyPage { });
+            await Navigation.PushAsync(new RulePage { });
         }
 
         private async void ImgBtn_Login_Clicked(object sender, EventArgs e)

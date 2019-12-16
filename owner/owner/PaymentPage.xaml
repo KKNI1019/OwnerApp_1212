@@ -5,12 +5,93 @@
              x:Class="owner.PaymentPage">
     <ContentPage.Content>
         <StackLayout>
-            <Button x:Name="btn_pay"
-                    BackgroundColor="Orange"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    TextColor="White"
-                    Clicked="Btn_pay_Clicked"/>
+            <StackLayout.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            iOS="0,20,0,0"
+                            Android="0,0,0,0"/>
+            </StackLayout.Margin>
+            <AbsoluteLayout 
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="White" 
+                HeightRequest="50"
+                Margin="0,0,0,-6">
+                <ImageButton 
+                    Padding="10" 
+                    BackgroundColor="Transparent"
+                    Source="back1"  
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds=".01,.5"
+                    Clicked="ImageButton_Clicked"/>
+                <Label 
+                    Text="支払い"
+                    FontSize="16"
+                    TextColor="Black"
+                    AbsoluteLayout.LayoutBounds=".5,.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"/>
+            </AbsoluteLayout>
+            <ScrollView>
+                <StackLayout Padding="30">
+                    <Image Source="logo.png" 
+                           HorizontalOptions="Center"
+                           WidthRequest="70"/>
+                    <Frame BackgroundColor="LightGray"
+                           Padding="10"
+                           HorizontalOptions="FillAndExpand"
+                           Margin="0,20"
+                           CornerRadius="8"
+                           HasShadow="False">
+                        <StackLayout HorizontalOptions="Center">
+                            <Label x:Name="lbl_amount"
+                                   TextColor="Black"
+                                   FontSize="14"
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"/>
+                            <Label FontSize="13"
+                                   TextColor="Black"
+                                   x:Name="lbl_amount_des"
+                                   HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame x:Name="frame_pay"
+                       Padding="20,10"
+                       CornerRadius="8"
+                       HasShadow="False"
+                       BackgroundColor="Orange"
+                       HorizontalOptions="Center">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Btn_pay_Clicked"/>
+                        </Frame.GestureRecognizers>
+                        <Label Text="続ける"
+                           TextColor ="White"
+                           FontSize="16"/>
+                    </Frame>
+                    <Label Text="購入復元"
+                           TextColor="Orange"
+                           FontSize="14"
+                           Margin="0,7,0,20"
+                           TextDecorations="Underline"
+                           HorizontalOptions="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="lbl_restore_tap"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Label TextColor="Black" FontSize="12">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="budi conciergeは 不動産管理の常識を変える、新しいサービスです。&#10;"/>
+                                <Span Text="budi conciergeは、オーナーさんと入居者、 そして専門スタッフをつなぐアプリケーションです。とっても大変で手間のかかる物件の管理業務 を、オーナーさんの手の中で思いのままに操作することができます。確定申告や物件の売却も専門家とつないでスマートフォンで完結。入居者からの問い合わせも ChatBotで24時間対応。「水が出ない!」「ガスが漏れているような気がする」 日常のトラブルはチャットで解決! オーナーさんに代わってアプリ が全部対応します。 &#10;"/>
+                                <Span Text="更新手続き、退去手続き対応 から新規入居者募集もアプリから。オーナーさんが了承したら退去日から退去立会い、原状回復工事、そして次の入居募集開始 まですべて自動でやっちゃいます!&#10;"/>
+                                <Span Text="弊社への管理移行の手続きもすべておまかせ。面倒な手続きも、 すべてお手伝いさせていただきます。&#10;"/>
+                                <Span Text="自動収支計算機能では、自動算出した毎月の収支を グラフで一括見える化。いつ、どんな時でも即収支確。市場データを元にした将来的な家賃予想 /売却価格予想もできちゃいます。&#10;"/>
+                                <Span Text="簡単査定では現在の所有物件の売却価格 を市場データからその場で算出今後の投資、運用戦略のための売却予想金額も即確認できます。&#10;"/>
+                                <Span Text="不動産を中心とした最新のニュースを 専門知識を持ったキュレーターがピックアップしたニュース機能、面倒な確定申告の手続きをお手伝いする機能、オーナー同士の情報交換の場となる掲示板機能など、全てに機能が月額500円。管理費は無料です。&#10;"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    
+                </StackLayout>
+            </ScrollView>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>

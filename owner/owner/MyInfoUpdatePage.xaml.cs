@@ -45,9 +45,9 @@ namespace owner
 
         private async void Btn_payment_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new MyInfoUpdateCompletePage());
+            //await Navigation.PushAsync(new MyInfoUpdateCompletePage());
 
-            //await Navigation.PushAsync(new PaymentPage());
+            await Navigation.PushAsync(new PaymentPage(string.Empty));
 
             //switch (Device.RuntimePlatform)
             //{

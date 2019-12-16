@@ -39,16 +39,20 @@
                        VerticalOptions="FillAndExpand"
                        BackgroundColor="White"
                        HasShadow="True">
-                    <StackLayout>
-                        <Image Source="img_user2.png"
-                               HorizontalOptions="Center"
-                               Margin="0,50,0,30"/>
-                        <Label Text="管理委託契約書内容"
-                           Margin="20,0"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"/>
-                    </StackLayout>
-                    
+                    <ScrollView>
+                        <StackLayout>
+                            <Image Source="img_user2.png"
+                                   HorizontalOptions="Center"
+                                   Margin="0,50,0,30"/>
+                            <Label TextColor="Black" FontSize="13">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="管理委託契約書内容"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                    </ScrollView>
                 </Frame>
                 <StackLayout Grid.Row="1">
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" >

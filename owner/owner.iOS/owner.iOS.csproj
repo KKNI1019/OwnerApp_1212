@@ -117,6 +117,7 @@
     <Compile Include="MessageIOS.cs" />
     <Compile Include="SaveIOS.cs" />
     <None Include="Entitlements.plist" />
+    <BundleResource Include="GoogleService-Info.plist" />
     <None Include="Info.plist">
       <SubType>Designer</SubType>
     </None>

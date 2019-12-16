@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using owner.Model;
 using owner.WebService;
 using Plugin.Media.Abstractions;
 using System;
@@ -18,7 +19,9 @@ namespace owner
 	public partial class EstateSaleStep6Page : ContentPage
 	{
         private MediaFile mediafile;
-        public EstateSaleStep6Page (MediaFile file)
+        private string estate_type;
+
+        public EstateSaleStep6Page (MediaFile file, string type)
 		{
 			InitializeComponent ();
 
@@ -29,6 +32,7 @@ namespace owner
             });
 
             mediafile = file;
+            estate_type = type;
         }
 
         private void ImgBtn_sendCerti_Clicked(object sender, EventArgs e)
@@ -61,8 +65,7 @@ namespace owner
                 if (resultMsg.resp == "success")
                 {
                     loadingbar.IsRunning = false;
-
-                    DependencyService.Get<IMessage>().LongAlert(resultMsg.message);
+                    
                     //await Navigation.PushAsync(new LoginPage());
                 }
                 else
@@ -98,7 +101,15 @@ namespace owner
 
         private async void Send_btn_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EstateSaleStep7Page());
+            if (string.Equals(estate_type, "pay"))
+            {
+                await Navigation.PushAsync(new EstateSaleStep7Page());
+            }
+            else
+            {
+                await Navigation.PushAsync(new PaymentPage(Global.zero_estate_name));
+            }
+            
         }
     }
 }

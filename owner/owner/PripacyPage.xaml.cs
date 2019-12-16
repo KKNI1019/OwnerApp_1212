@@ -14,13 +14,7 @@ namespace owner
 	{
 		public PripacyPage ()
 		{
-			InitializeComponent ();
-
-            NavigationPage.SetHasNavigationBar(this, false);
-            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.White;
-            ((NavigationPage)Application.Current.MainPage).BarTextColor = Color.Black;
-
-            
+			InitializeComponent ();            
         }
 
         private async void Agree_btn_Clicked(object sender, EventArgs e)
@@ -28,7 +22,7 @@ namespace owner
             await Navigation.PopAsync();
         }
 
-        private async void Back_btn_Clicked(object sender, EventArgs e)
+        private async void stkBack_Tapped(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
         }

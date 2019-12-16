@@ -15,9 +15,13 @@ namespace owner
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class EstateSaleStep5Page : ContentPage
 	{
-		public EstateSaleStep5Page ()
+        private string estate_type;
+
+		public EstateSaleStep5Page (string type)
 		{
 			InitializeComponent ();
+
+            estate_type = type;
 		}
 
         private async void imgBack_Clicked(object sender, EventArgs e)
@@ -60,7 +64,7 @@ namespace owner
 
                 if (file == null) return;
 
-                await Navigation.PushAsync(new EstateSaleStep6Page(file));
+                await Navigation.PushAsync(new EstateSaleStep6Page(file, estate_type));
             }
         }
     }

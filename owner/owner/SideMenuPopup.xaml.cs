@@ -111,7 +111,7 @@ namespace owner
 
         private async void LicensePage_clicked()
         {
-            await Navigation.PushAsync(new PripacyPage());
+            await Navigation.PushAsync(new RulePage());
             await PopupNavigation.Instance.PopAsync();
         }
 

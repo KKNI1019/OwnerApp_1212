@@ -55,7 +55,8 @@ namespace owner.WebService
         public const string SERVER_LIKE_COMMENT_URL = SERVER_BASE_URL + "like_comment";
         public const string SERVER_DISLIKE_COMMENT_URL = SERVER_BASE_URL + "dislike_comment";
         public const string SERVER_VIDEO_URL = SERVER_BASE_URL + "get_video_info";
-        public const string SERVER_GET_SALE_REQUEST_URL = SERVER_BASE_URL + "get_sale_request";
+        public const string SERVER_GET_SALE_REQUEST_URL = SERVER_BASE_URL + "get_sale_request"; 
+        public const string SERVER_Quiz_URL = "http://133.18.218.237:5000/real_estate_management/question/add";
 
         public const string ESTATE_IMAGE_URL = "estate_image_url";
         public const string PROGRAM_FEE = "program_fee";

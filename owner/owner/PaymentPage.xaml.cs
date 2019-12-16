@@ -20,12 +20,22 @@ namespace owner
         private string product_description;
         private string productId;
         private string payload;
-        public PaymentPage ()
+        private string building_name;
+
+        public PaymentPage (string estate_name)
 		{
 			InitializeComponent ();
 
-            productId = "com.xamarin.storekit.estate";
-            payload = "devId";
+            productId = "com.xamarin.storekit.realestate";
+            Random rand = new Random();
+            int int_payload = rand.Next(1000, 500000);
+            payload = int_payload.ToString();
+            
+            building_name = estate_name;
+            
+            //lbl_amount.Text = "550円/月";
+            //lbl_amount_des.Text = "500円 + 50円（消費税10％）";
+
             Pay();
 		}
 
@@ -56,7 +66,13 @@ namespace owner
                     product_price = item.LocalizedPrice;
                 }
 
-                btn_pay.Text = product_price + "円/月";
+                lbl_amount.Text = product_price + "円/月";
+
+                int bank_fee = Convert.ToInt32(product_price) - App.programm_fee;
+                int bank_rate = bank_fee * 100 / App.programm_fee;
+                lbl_amount_des.Text = App.programm_fee + "円 + " + bank_rate + "円（消費税" + bank_rate + "％）";
+
+
             }
             
             catch (Exception ex)
@@ -87,19 +103,15 @@ namespace owner
                 else
                 {
                     //purchased!
+                    if (string.Equals(building_name, string.Empty))
+                    {
+                        await Navigation.PushAsync(new MyInfoUpdateCompletePage());
+                    }
+                    else
+                    {
+                        await Navigation.PushAsync(new ZeroFinalPage());
+                    }
                 }
-
-                //var purchases = await billing.GetPurchasesAsync(ItemType.Subscription);
-                //if (purchases?.Any(p => p.ProductId == productId) ?? false)
-                //{
-                //    //Purchase restored
-                //    return;
-                //}
-                //else
-                //{
-                //    //no purchases found
-                //    return;
-                //}
             }
             catch (InAppBillingPurchaseException purchaseEx)
             {
@@ -107,28 +119,73 @@ namespace owner
                 switch (purchaseEx.PurchaseError)
                 {
                     case PurchaseError.AppStoreUnavailable:
-                        message = "Currently the app store seems to be unavailble. Try again later.";
+                        message = "現在、アプリストアは利用できないようです。 あとでもう一度試してみてください。";
                         break;
                     case PurchaseError.BillingUnavailable:
-                        message = "Billing seems to be unavailable, please try again later.";
+                        message = "請求は利用できないようです。しばらくしてからもう一度お試しください。";
                         break;
                     case PurchaseError.PaymentInvalid:
-                        message = "Payment seems to be invalid, please try again.";
+                        message = "お支払いが無効のようです。もう一度お試しください。";
                         break;
                     case PurchaseError.PaymentNotAllowed:
-                        message = "Payment does not seem to be enabled/allowed, please try again.";
+                        message = "支払いが有効/許可されていないようです。もう一度お試しください。";
+                        break;
+                    case PurchaseError.ServiceUnavailable:
+                        message = "サービスを利用することができません。もう一度お試しください。";
                         break;
                 }
 
                 //Decide if it is an error we care about
                 if (string.IsNullOrWhiteSpace(message))
+                {
+                    await DisplayAlert("支払い", "請求は利用できないようです。しばらくしてからもう一度お試しください。", "はい");
                     return;
-
-                //Display message to user
+                }
+                else
+                {
+                    await DisplayAlert("支払い", message, "はい");
+                }
+                    
             }
             finally
             {
                 await billing.DisconnectAsync();
+            }
+        }
+
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        private async void lbl_restore_tap(object sender, EventArgs e)
+        {
+            var billing = CrossInAppBilling.Current;
+            if (!CrossInAppBilling.IsSupported)
+                return;
+
+            try
+            {
+                var purchases = await billing.GetPurchasesAsync(ItemType.Subscription);
+                if (purchases?.Any(p => p.ProductId == productId) ?? false)
+                {
+                    //Purchase restored
+                    if (string.Equals(building_name, string.Empty))
+                    {
+                        await Navigation.PushAsync(new MyInfoUpdateCompletePage());
+                    }
+                    else
+                    {
+                        await Navigation.PushAsync(new ZeroFinalPage());
+                    }
+                }
+                else
+                {
+                    //no purchases found
+                }
+            }
+            catch {
+                await DisplayAlert("購入復元", "購入を復元することができません。", "はい");
             }
         }
     }

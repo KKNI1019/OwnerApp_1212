@@ -81,7 +81,7 @@ namespace owner
                         ResponseData resultData = JsonConvert.DeserializeObject<ResponseData>(response);
                         //App.estate_num += 1;
 
-                        await Navigation.PushAsync(new EstateSaleStep5Page());
+                        await Navigation.PushAsync(new EstateSaleStep5Page("pay"));
                     }
                     else
                     {
