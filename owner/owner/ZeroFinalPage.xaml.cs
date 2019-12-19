@@ -47,12 +47,13 @@ namespace owner
             {
                 var formcontent = new FormUrlEncodedContent(new[]
                 {
-                        new KeyValuePair<string, string>(Constants.OWNER_ID, App.owner_ID)
+                        new KeyValuePair<string, string>(Constants.OWNER_ID, App.owner_ID),
+                        new KeyValuePair<string, string>("zero_id", App.zero_id)
                 });
 
                 try
                 {
-                    var request = await cl.PostAsync(Constants.SERVER_PAY_CHECK_URL, formcontent);
+                    var request = await cl.PostAsync(Constants.SERVER_BASE_URL + "confirm_zero_info", formcontent);
                     request.EnsureSuccessStatusCode();
                     var response = await request.Content.ReadAsStringAsync();
                     ResponseMsg resultMsg = JsonConvert.DeserializeObject<ResponseMsg>(response);
@@ -60,7 +61,6 @@ namespace owner
                     if (resultMsg.resp.Equals("success"))
                     {
                         ResponseData resultData = JsonConvert.DeserializeObject<ResponseData>(response);
-                        App.owner_type = "1";                        
                     }
                     else
                     {

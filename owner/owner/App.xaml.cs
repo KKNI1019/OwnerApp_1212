@@ -36,6 +36,7 @@ namespace owner
         public static float income_rate { get; set; }
         public static string zero_id { get; set; }
         public static string owner_license { get; set; }
+        public static string owner_bonus { get; set; }
 
 
         public static  int rental_income { get; set; }

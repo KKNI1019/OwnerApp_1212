@@ -32,58 +32,61 @@ namespace owner
             payload = int_payload.ToString();
             
             building_name = estate_name;
-            
-            //lbl_amount.Text = "550円/月";
-            //lbl_amount_des.Text = "500円 + 50円（消費税10％）";
 
             Pay();
+                
 		}
 
         private async void Pay()
         {
-            
-            var billing = CrossInAppBilling.Current;
-
-            if (!CrossInAppBilling.IsSupported)
-                return;
-            try
+            if (App.owner_bonus == "1")
             {
-                var connected = await billing.ConnectAsync(ItemType.Subscription);
+                await Navigation.PushAsync(new ZeroFinalPage());
+            }
+            else
+            {
+                var billing = CrossInAppBilling.Current;
 
-                if (!connected)
-                {
-                    //we are offline or can't connect, don't try to purchase
+                if (!CrossInAppBilling.IsSupported)
                     return;
-                }
-                
-                var items = await billing.GetProductInfoAsync(ItemType.Subscription, productId);
-                foreach (var item in items)
+                try
                 {
-                    //item info here.
-                    productId = item.ProductId;
-                    product_name = item.Name;
-                    product_description = item.Description;
-                    product_price = item.LocalizedPrice;
+                    var connected = await billing.ConnectAsync(ItemType.Subscription);
+
+                    if (!connected)
+                    {
+                        //we are offline or can't connect, don't try to purchase
+                        return;
+                    }
+
+                    var items = await billing.GetProductInfoAsync(ItemType.Subscription, productId);
+                    foreach (var item in items)
+                    {
+                        //item info here.
+                        productId = item.ProductId;
+                        product_name = item.Name;
+                        product_description = item.Description;
+                        product_price = item.LocalizedPrice;
+                    }
+
+                    lbl_amount.Text = product_price + "/月";
+
+                    int bank_fee = Convert.ToInt32(product_price.Replace("¥", "")) - App.programm_fee;
+                    int bank_rate = bank_fee * 100 / App.programm_fee;
+                    lbl_amount_des.Text = App.programm_fee + "円 + " + bank_rate + "円（消費税" + bank_rate + "％）";
                 }
 
-                lbl_amount.Text = product_price + "円/月";
-
-                int bank_fee = Convert.ToInt32(product_price) - App.programm_fee;
-                int bank_rate = bank_fee * 100 / App.programm_fee;
-                lbl_amount_des.Text = App.programm_fee + "円 + " + bank_rate + "円（消費税" + bank_rate + "％）";
-
-
+                catch (Exception ex)
+                {
+                    //Something else has gone wrong, log it
+                    Debug.WriteLine("Issue connecting: " + ex);
+                }
+                finally
+                {
+                    await billing.DisconnectAsync();
+                }
             }
             
-            catch (Exception ex)
-            {
-                //Something else has gone wrong, log it
-                Debug.WriteLine("Issue connecting: " + ex);
-            }
-            finally
-            {
-                await billing.DisconnectAsync();
-            }
         }
 
         private async void Btn_pay_Clicked(object sender, EventArgs e)
@@ -182,6 +185,7 @@ namespace owner
                 else
                 {
                     //no purchases found
+                    await DisplayAlert("購入復元", "購入を復元することができません。", "はい");
                 }
             }
             catch {

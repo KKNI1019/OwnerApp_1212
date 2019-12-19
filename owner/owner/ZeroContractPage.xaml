@@ -43,14 +43,127 @@
                         <StackLayout>
                             <Image Source="img_user2.png"
                                    HorizontalOptions="Center"
-                                   Margin="0,50,0,30"/>
-                            <Label TextColor="Black" FontSize="13">
+                                   Margin="0,15"/>
+                            
+                            <Label TextColor="Black" FontSize="13" Text="第 1 条	【業務委託内容】"/>
+                            <Label TextColor="Black" FontSize="13" Text="下記業務について、乙は乙の提携する会社へ全部または、一部の業務を委託することができるものとする。&#10;" Margin="15,0,0,0"/>
+                            
+                            <Label TextColor="Black" FontSize="13" Text="1：空室時の乙の業務"/>
+                            <Label TextColor="Black" FontSize="13" Margin="10,0,0,0">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="管理委託契約書内容"/>
+                                        <Span Text="① 本物件内部の清掃及び給湯・空調等各設備の点検作業。&#10;"/>
+                                        <Span Text="② 内装業者との打ち合わせ及び手配等。&#10;"/>
+                                        <Span Text="③ 定期的に見回りを行い、異常があれば甲に報告し、甲の指示に従い処理する。&#10;"/>
+                                        <Span Text="④ 本物件周辺の市場調査及び本物件の賃貸条件の提案・設定。&#10;"/>
+                                        <Span Text="⑤ 新賃借人の募集活動（アプリ・チラシ・広告等）により客付け促進業務。&#10;"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
+
+                            <Label TextColor="Black" FontSize="13" Text="2：賃貸借契約締結及びその後の乙の業務"/>
+                            <Label TextColor="Black" FontSize="13" Margin="10,0,0,0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="① 甲は代理人として賃貸借契約を締結する権限を乙に委任するものとする（敷金等の受領領収書の発行、本物件の引渡し等の権限も含む）ただし、敷金等の額、賃料、賃貸借契約等の賃貸条件については、事前に電話又は文面（アプリ内通知含む）にて甲に通知する。&#10;"/>
+                                        <Span Text="なお賃貸募集条件については、甲乙協議の上変更できるものとする。&#10;"/>
+                                        <Span Text="② 賃貸借契約日までの諸費用（電気、水道、ガス、電話料金等）の清算の代理代行業務取次に関する業務。&#10;"/>
+                                        <Span Text="③ 賃貸借契約書その他の関係書類の作成、金員の受領及び送金事務代行業務。&#10;"/>
+                                        <Span Text="④ 新賃借人に対する生活環境の説明及び厨房、給湯、空調各設備の使用方法、手入れの説明、故障時の連絡先等の説明。&#10;"/>
+                                        <Span Text="⑤ 月額賃料等の集金業務。&#10;"/>
+                                        <Span Text="⑥ 賃料の未払い、滞納がある場合には、甲の代理人として賃貸借に対し、口頭または文面（アプリ内通知含む）で請求、督促をし、その取立てに努める。&#10;"/>
+                                        <Span Text="⑦ 賃貸借契約更新業務（新賃料条件の設定及び賃料等の改訂交渉、更新契約手続きの締結及び金員の受領・送金事務代行）。&#10;"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label TextColor="Black" FontSize="13" Text="3：賃借人より賃貸契約の解約等終了の申し入れがあった時の乙の業務"/>
+                            <Label TextColor="Black" FontSize="13" Margin="10,0,0,0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="① 賃借人より解約申し入れの意思表示を受ける権限。&#10;"/>
+                                        <Span Text="② 甲に賃借人より解約申し入れがあった事を速やかに伝え、今後の処理について相談する。&#10;"/>
+                                        <Span Text="建物明渡し時に建物の損傷の有無を調査し、賃借人の責任による損傷があった場合、賃借人にその修復を要請し、その解決に努める。&#10;"/>
+                                        <Span Text="③ 甲の代理人として賃借人の上記修理代金及び諸費用（電気、水道、ガス、電和料金等）等の債務と敷金を相殺して清算する代理代行業務。&#10;"/>
+                                        <Span Text="④ 甲の代理人として本物件の引渡しを受け、鍵を回収する業務。&#10;"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label TextColor="Black" FontSize="13" Text="4：甲より賃貸借契約の解約の申し入れがあった時の乙の業務"/>
+                            <Label TextColor="Black" FontSize="13" Margin="10,0,0,0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="① 賃借人に甲の意思を速やかに伝え、その意志に基づいて、甲の代理人として賃借人と明渡しを交渉し、その明渡しに務める。&#10;"/>
+                                        <Span Text="② 交渉の結果、賃貸借契約が終了した場合には、上記3の②③④の取り決めに従って処理する。（敷金の返済を含む、借上げ物件は除く）&#10;"/>                                        
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label TextColor="Black" FontSize="13" Text="5：本物件の修理代金"/>
+                            <Label TextColor="Black" FontSize="13" Margin="10,0,0,0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="① 乙は本物件の修理が必要となった場合、その実情を調査して業者に工事費の見積を依頼する。&#10;"/>
+                                        <Span Text="② 乙は、甲に調査結果を速やかに報告し、甲の承諾を得て、その代理人として業者に工事の発注をし、その完了を確認する。&#10;"/>
+                                        <Span Text="③ 甲は、工事の発注先については乙に一任する。&#10;"/>
+                                        <Span Text="④ 賃借人の故意または過失によって、本物件の修理が必要になったと認められる場合、乙は賃借人にその修理をさせ、または修理代金を負担させるように努める。&#10;"/>
+                                        <Span Text="⑤ 次に記載する修理・修繕・交換等の費用は甲が負担するものとする。&#10;"/>
+                                        <Span Text="・経年による建物本体及び内部の修理・修繕・交換&#10;"/>
+                                        <Span Text="・建物の瑕疵を原因とする修理・修繕・交換&#10;"/>
+                                        <Span Text="・使用されている材質の特性として必要な修理・修繕・交換&#10;"/>
+                                        <Span Text="・地震・火災・爆発・水害その他不可抗力による事故等の修理・修繕・交換&#10;"/>
+                                        <Span Text="・居住者及びその関係者以外の第三者による破損行為等の修理・修繕・交換&#10;"/>
+                                        <Span Text="⑥ 上記の甲の負担する費用を乙が立替払いした場合には、甲に支払う金員からこれを控除することができるものとする。&#10;"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label TextColor="Black" FontSize="13" Text="第 2 条	【契約期間】"/>
+                            <Label TextColor="Black" FontSize="13" Text="本契約の有効期間は、標記記載の通りとする。&#10;" Margin="15,0,0,0"/>
+
+                            <Label TextColor="Black" FontSize="13" Text="第 3 条	【契約業務委託報酬】"/>
+                            <Label TextColor="Black" FontSize="13" Margin="10,0,0,0">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="① 甲は賃貸借契約更新時に、入居者より受領する更新料（取得時のみ）の半額（消費税込）を乙に更新代行手数料として支払うものとする。&#10;"/>
+                                        <Span Text="② 甲は、新規契約時に乙が賃貸付けを迅速にするため、乙に業務委託報酬（月額賃料1ヶ月分）を支払うことを承諾する。&#10;"/>
+                                        <Span Text="③ 乙が取得する更新代行手数料、及び業務委託報酬については甲への契約金送金時に総額より差引して受領することを甲は承諾するものとする。&#10;"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label TextColor="Black" FontSize="13" Text="第 4 条	【敷金・保証金】"/>
+                            <Label TextColor="Black" FontSize="13" Text="本契約日以降より契約期間内で、入居者から預かる敷金・保証金は乙の責任に基づき保管するものとする。ただし、この金員は無利息とする。&#10;" Margin="15,0,0,0"/>
+
+                            <Label TextColor="Black" FontSize="13" Text="第 5 条	【契約更新】"/>
+                            <Label TextColor="Black" FontSize="13" Text="本契約の更新について、期間満了の1ヶ月前までに乙より条件変更等の告知がない場合は従前の契約内容と同一条件で自動更新とする。" Margin="15,0,0,0"/>
+                            <Label TextColor="Black" FontSize="13" Text="条件変更等の告知がある場合は乙から新条件内容を提示し、その新条件に対して契約満了日までに甲から異議申し立てがない場合は、新条件にて更新するものとする。&#10;" Margin="15,0,0,0"/>
+
+                            <Label TextColor="Black" FontSize="13" Text="第 6 条	【契約解除】"/>
+                            <Label TextColor="Black" FontSize="13" Text="本物件は、甲乙共に書面にて解約申入れがあった日の翌日より6ヶ月を経過した日に終了する。" Margin="15,0,0,0"/>
+                            <Label TextColor="Black" FontSize="13" Text="上記の期間満了前の解約については、解約金として月額総賃料の3ヶ月を支払うものとする。" Margin="15,0,0,0"/>
+                            <Label TextColor="Black" FontSize="13" Text="ただし、次の事項が発生したときは甲・乙は即時本契約を解除することができ、上記の限りではないものとする。" Margin="15,0,0,0"/>
+                            <Label TextColor="Black" FontSize="13" Text="1.天災・火災その他の事由により、建物の一部または全部が使用できなくなったとき。" Margin="15,0,0,0"/>
+                            <Label TextColor="Black" FontSize="13" Text="2.差押・仮差押・仮処分・競売・租税滞納その他公権力の処分を受け、または会社解散・会社更生手続きの開始もしくは破産の申立てがあったとき。" Margin="15,0,0,0"/>
+                            <Label TextColor="Black" FontSize="13" Text="3.監督官庁より営業の停止または、営業免許・許可もしくは営業登録の取り消し処分を受けたとき。&#10;" Margin="15,0,0,0"/>
+
+                            <Label TextColor="Black" FontSize="13" Text="第 7 条	【本物件の所有権等の変更及び地位の承継】"/>
+                            <Label TextColor="Black" FontSize="13" Text="① 本物件が甲乙間に継続中、甲が第三者に所有権等の変更がある場合は、甲は乙に対し、その旨を少なくとも１ヶ月前までに書面にて通知するものとする。&#10;この場合、甲は、本契約を新所有者に承継させる義務を負うものとする。" Margin="15,0,0,0"/>
+                            <Label TextColor="Black" FontSize="13" Text="② 本契約が終了したとき、甲は当然に乙の地位を引き継ぐものとする。よって本物件のすべてについて現状のまま引き渡すものとし、入居者との賃貸借契約も甲が承継するものとする。&#10;" Margin="15,0,0,0"/>
+
+                            <Label TextColor="Black" FontSize="13" Text="第 8 条	【損害賠償】"/>
+                            <Label TextColor="Black" FontSize="13" Text="甲・乙いずれか一方の契約違反により、損害を受けた時は相手方に対し、その損害を請求することができる。&#10;" Margin="15,0,0,0"/>
+
+                            <Label TextColor="Black" FontSize="13" Text="第 9 条	【免責事項】"/>
+                            <Label TextColor="Black" FontSize="13" Text="本物件でおきた火災・爆発・その他事故等によって甲に損害が生じた場合、乙は一切その責任を負わないものとする。&#10;" Margin="15,0,0,0"/>
+
+                            <Label TextColor="Black" FontSize="13" Text="第 10 条	【管轄裁判所に関する合意】"/>
+                            <Label TextColor="Black" FontSize="13" Text="甲乙間でこの契約に関する争いが生じた場合、乙の管轄する裁判所をもって、合意による管轄裁判所とする。&#10;" Margin="15,0,0,0"/>
+
+                            <Label TextColor="Black" FontSize="13" Text="第 11 条	【協議事項】"/>
+                            <Label TextColor="Black" FontSize="13" Text="本契約の定めの無い事項については、民法その他関係法令ならび不動産取引の習行に従い、甲乙双方が誠意をもって解決するものとする。&#10;" Margin="15,0,0,0"/>
+
                         </StackLayout>
                     </ScrollView>
                 </Frame>

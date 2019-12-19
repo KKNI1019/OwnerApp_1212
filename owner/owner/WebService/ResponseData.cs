@@ -92,6 +92,7 @@ namespace owner.WebService
         public owner_estate_data[] owner_estate_data;
         public string pay_info_id;
         public string owner_license;
+        public string owner_bonus;
     }
 
     public class thread_list_data

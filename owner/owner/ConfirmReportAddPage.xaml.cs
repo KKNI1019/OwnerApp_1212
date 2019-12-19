@@ -125,14 +125,14 @@ namespace owner
 
         private async void imgAdd_Clicked(object sender, EventArgs e)
         {
-            //if (App.owner_type == "0")
-            //{
-            //    await DisplayAlert("", "決済して管理していない物件です。", "はい");
-            //}
-            //else
-            //{
+            if (Global.Buildings[building_index].zero_status == "0")
+            {
+                await DisplayAlert("", "決済して管理していない物件です。", "はい");
+            }
+            else
+            {
                 PopupNavigation.Instance.PushAsync(new ConfirmReportAddPopup(current_month));
-            //}
+            }
 
         }
 

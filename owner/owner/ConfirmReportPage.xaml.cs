@@ -68,7 +68,7 @@ namespace owner
 
         private async void PDF_btn_Clicked(object sender, EventArgs e)
         {
-            if (Global.Buildings[building_index].zero_status != "5")
+            if (Global.Buildings[building_index].zero_status == "0")
             {
                 await DisplayAlert("", "決済して管理していない物件です。", "はい");
             }
@@ -327,7 +327,7 @@ namespace owner
 
         private async void Previous_btn_Clicked(object sender, EventArgs e)
         {
-            if (Global.Buildings[building_index].zero_status != "5")
+            if (Global.Buildings[building_index].zero_status == "0")
             {
                 await DisplayAlert("", "決済して管理していない物件です。", "はい");
             }
@@ -345,7 +345,7 @@ namespace owner
 
         private async void Next_btn_Clicked(object sender, EventArgs e)
         {
-            if (Global.Buildings[building_index].zero_status != "5")
+            if (Global.Buildings[building_index].zero_status == "0")
             {
                 await DisplayAlert("", "決済して管理していない物件です。", "はい");
             }

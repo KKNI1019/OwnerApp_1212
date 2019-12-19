@@ -162,6 +162,7 @@ namespace owner
                         loadingbar.IsEnabled = false;
                         ResponseData resultData = JsonConvert.DeserializeObject<ResponseData>(response);
 
+                        App.owner_bonus = resultData.owner_data.owner_bonus;
                         App.owner_ID = resultData.owner_data.owner_id;
                         App.owner_name = resultData.owner_data.owner_name;
                         App.owner_kana = resultData.owner_data.owner_kana;
@@ -216,7 +217,8 @@ namespace owner
                                     estate_yearly_profit = resultData.owner_data.owner_estate_data[i].estate_yearly_profit,
                                     estate_repay_period = resultData.owner_data.owner_estate_data[i].estate_repay_period,
                                     estate_property_tax = resultData.owner_data.owner_estate_data[i].estate_property_tax,
-                                    program_fee = App.programm_fee
+                                    program_fee = App.programm_fee,
+                                    zero_status = resultData.owner_data.owner_estate_data[i].estate_zero_status
 
                                 });
 
@@ -302,6 +304,7 @@ namespace owner
                     {
                         ResponseData resultData = JsonConvert.DeserializeObject<ResponseData>(response);
 
+                        App.owner_bonus = resultData.owner_data.owner_bonus;
                         App.owner_ID = resultData.owner_data.owner_id;
                         App.owner_name = resultData.owner_data.owner_name;
                         App.owner_kana = resultData.owner_data.owner_kana;
@@ -344,6 +347,7 @@ namespace owner
                                 }
                                 Global.Buildings.Add(new BuildingInfo
                                 {
+                                    building_id = resultData.owner_data.owner_estate_data[i].estate_id,
                                     building_name = resultData.owner_data.owner_estate_data[i].estate_name,
                                     rental_income = Convert.ToInt32(resultData.owner_data.owner_estate_data[i].estate_rent),
                                     admin_expense = Convert.ToInt32(resultData.owner_data.owner_estate_data[i].estate_admin_expense),
@@ -355,7 +359,8 @@ namespace owner
                                     estate_yearly_profit = resultData.owner_data.owner_estate_data[i].estate_yearly_profit,
                                     estate_repay_period = resultData.owner_data.owner_estate_data[i].estate_repay_period,
                                     estate_property_tax = resultData.owner_data.owner_estate_data[i].estate_property_tax,
-                                    program_fee = App.programm_fee
+                                    program_fee = App.programm_fee,
+                                    zero_status = resultData.owner_data.owner_estate_data[i].estate_zero_status
 
                                 });
 

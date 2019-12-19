@@ -32,7 +32,7 @@
                 </AbsoluteLayout>
                 <StackLayout
                     Padding="30,20"
-                    Margin="0,30,0,0">
+                    Margin="0,50,0,0">
                     <Label
 					    Text="売却希望金額は"
                         TextColor="Black"
@@ -76,7 +76,7 @@
                         Source="btn_request.png"
                         BackgroundColor="Transparent"
                         HorizontalOptions="Center"
-                        Margin="0,30"
+                        Margin="0,50,0,0"
                         x:Name="sale_request_btn"
                         Clicked="Sale_request_btn_Clicked"/>
                     <Button

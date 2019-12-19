@@ -120,8 +120,7 @@ namespace owner
 
                     if (resultMsg.resp.Equals("success"))
                     {
-                        ResponseData resultData = JsonConvert.DeserializeObject<ResponseData>(response);
-                        //App.estate_num += 1;
+                        App.zero_id = resultMsg.zero_id;
                        
                         await Navigation.PushAsync(new ZeroUnregisterAlert(title));
                     }
