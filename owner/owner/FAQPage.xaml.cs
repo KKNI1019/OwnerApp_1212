@@ -98,7 +98,13 @@ namespace owner
                     var botMessage = messages.Last().Text;
                     if (botMessage == "No QnA Maker answers were found.")
                     {
-                        botMessage = "※専用アプリにご加入いただきます。アプリ利用料金（物件一戸数月額500円）。\n更新料がある物件の場合は更新料の半月分を更新代行手数料としてお支払いいただきます。";
+                        botMessage = "大変申し訳ございませんがこちらでは回答しかねます、問い合わせフォームよりご連絡下さい。";
+
+                        var display = await DisplayAlert("", botMessage, "はい", "キャンセル");
+                        if (display)
+                        {
+                            await Navigation.PushAsync(new QuizPage());
+                        }
                     }
 
                     msgItem.Add(new MessageItem

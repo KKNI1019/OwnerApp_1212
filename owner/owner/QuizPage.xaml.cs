@@ -57,5 +57,10 @@ namespace owner
                 }
             }
         }
+
+        private async void Back_btn_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

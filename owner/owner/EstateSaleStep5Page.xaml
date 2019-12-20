@@ -30,8 +30,7 @@
                     AbsoluteLayout.LayoutBounds=".5,.5" 
                     AbsoluteLayout.LayoutFlags="PositionProportional"/>
             </AbsoluteLayout>
-            <ScrollView>
-                <StackLayout
+                <StackLayout VerticalOptions="FillAndExpand"
                     Padding="20">
                     <Label
                         Text="身分証を撮影し送信します&#10;いずれかの身分証をご用意ください"
@@ -39,104 +38,108 @@
                         HorizontalTextAlignment="Center"
                         FontSize="14"
                         TextColor="Black"
-                        Margin="0,20"/>
+                        Margin="0,0,0,20"/>
                     <Frame
                         BorderColor="#A0A0A0"
                         BackgroundColor="White"
                         Padding="20,30">
-                        <StackLayout
-                            BackgroundColor="Transparent">
-                            <input:RadioButtonGroupView 
-                                Margin="0,0,0,15"
-                                Orientation="Vertical"
-                                x:Name="certify_type">
-                                <input:RadioButton
-                                    Text="運転免許証"
-                                    Value="0"
-                                    CircleColor="#A0A0A0"
-                                    BackgroundColor="Transparent"
-                                    TextColor="Black"
-                                    TextFontSize="13"
-                                    Color="#FF9D00"/>
-                                <input:RadioButton 
-                                    Text="日本国パスポート"
-                                    Value="1"
-                                    CircleColor="#A0A0A0"
-                                    BackgroundColor="Transparent"
-                                    TextColor="Black"
-                                    TextFontSize="13"
-                                    Color="#FF9D00"/>
-                                <input:RadioButton 
-                                    Text="健康保険証"
-                                    Value="2"
-                                    CircleColor="#A0A0A0"
-                                    BackgroundColor="Transparent"
-                                    TextColor="Black"
-                                    TextFontSize="13"
-                                    Color="#FF9D00"/>
-                                <input:RadioButton 
-                                    Text="年金手帳"
-                                    Value="3"
-                                    CircleColor="#A0A0A0"
-                                    BackgroundColor="Transparent"
-                                    TextColor="Black"
-                                    TextFontSize="13"
-                                    Color="#FF9D00"/>
-                                <input:RadioButton 
-                                    Text="身体障がい者手帳、または療育手帳、または精神障がい者保健福祉手帳"
-                                    Value="4"
-                                    CircleColor="#A0A0A0"
-                                    BackgroundColor="Transparent"
-                                    TextColor="Black"
-                                    TextFontSize="13"
-                                    Color="#FF9D00"/>
-                                <input:RadioButton 
-                                    Text="在留カード（旧 外国人登録証明書）＋外国パスポート"
-                                    Value="5"
-                                    CircleColor="#A0A0A0"
-                                    BackgroundColor="Transparent"
-                                    TextColor="Black"
-                                    TextFontSize="13"
-                                    Color="#FF9D00"/>
-                                <input:RadioButton 
-                                    Text="個人番号カード（マイナンバーカード"
-                                    Value="6"
-                                    CircleColor="#A0A0A0"
-                                    BackgroundColor="Transparent"
-                                    TextColor="Black"
-                                    TextFontSize="13"
-                                    Color="#FF9D00"/>
-                            </input:RadioButtonGroupView>
-                            <Label
-                                Text="※ 個人番号カード（マイナンバーカード） のみ受け付けできます。通知カードは本人確認書類としてご使用できません。"
-                                FontSize="13"
-                                TextColor="Black"/>
-                            <Label
-                                Text="※ 新規契約のお手続きは、健康保険証のみ、または年金手帳のみでは"
-                                FontSize="13"
-                                TextColor="Black"/>
-                            <Label
-                                Text="受け付けできません。補助書類の提示をお願いします。"
-                                FontSize="13"
-                                TextColor="Black"/>
-                            <Label
-                                Text="（補助書類とは、公共料金領収書、官公庁発行の印刷物、住民票記載事項証明書などです。）"
-                                FontSize="13"
-                                TextColor="Black"/>
-                            <Label
-                                Text="※有効期限内のものでお願いします。"
-                                FontSize="13"
-                                TextColor="Black"/>
-                        </StackLayout>
+
+                        <ScrollView>
+                            <StackLayout
+                                        BackgroundColor="Transparent">
+                                <input:RadioButtonGroupView 
+                                            Margin="0,0,0,15"
+                                            Orientation="Vertical"
+                                            x:Name="certify_type">
+                                    <input:RadioButton
+                                                Text="運転免許証"
+                                                Value="0"
+                                                CircleColor="#A0A0A0"
+                                                BackgroundColor="Transparent"
+                                                TextColor="Black"
+                                                TextFontSize="13"
+                                                Color="#FF9D00"/>
+                                    <input:RadioButton 
+                                                Text="日本国パスポート"
+                                                Value="1"
+                                                CircleColor="#A0A0A0"
+                                                BackgroundColor="Transparent"
+                                                TextColor="Black"
+                                                TextFontSize="13"
+                                                Color="#FF9D00"/>
+                                    <input:RadioButton 
+                                                Text="健康保険証"
+                                                Value="2"
+                                                CircleColor="#A0A0A0"
+                                                BackgroundColor="Transparent"
+                                                TextColor="Black"
+                                                TextFontSize="13"
+                                                Color="#FF9D00"/>
+                                    <input:RadioButton 
+                                                Text="年金手帳"
+                                                Value="3"
+                                                CircleColor="#A0A0A0"
+                                                BackgroundColor="Transparent"
+                                                TextColor="Black"
+                                                TextFontSize="13"
+                                                Color="#FF9D00"/>
+                                    <input:RadioButton 
+                                                Text="身体障がい者手帳、または療育手帳、または精神障がい者保健福祉手帳"
+                                                Value="4"
+                                                CircleColor="#A0A0A0"
+                                                BackgroundColor="Transparent"
+                                                TextColor="Black"
+                                                TextFontSize="13"
+                                                Color="#FF9D00"/>
+                                    <input:RadioButton 
+                                                Text="在留カード（旧 外国人登録証明書）＋外国パスポート"
+                                                Value="5"
+                                                CircleColor="#A0A0A0"
+                                                BackgroundColor="Transparent"
+                                                TextColor="Black"
+                                                TextFontSize="13"
+                                                Color="#FF9D00"/>
+                                    <input:RadioButton 
+                                                Text="個人番号カード（マイナンバーカード"
+                                                Value="6"
+                                                CircleColor="#A0A0A0"
+                                                BackgroundColor="Transparent"
+                                                TextColor="Black"
+                                                TextFontSize="13"
+                                                Color="#FF9D00"/>
+                                </input:RadioButtonGroupView>
+                                <Label
+                                            Text="※ 個人番号カード（マイナンバーカード） のみ受け付けできます。通知カードは本人確認書類としてご使用できません。"
+                                            FontSize="13"
+                                            TextColor="Black"/>
+                                <Label
+                                            Text="※ 新規契約のお手続きは、健康保険証のみ、または年金手帳のみでは"
+                                            FontSize="13"
+                                            TextColor="Black"/>
+                                <Label
+                                            Text="受け付けできません。補助書類の提示をお願いします。"
+                                            FontSize="13"
+                                            TextColor="Black"/>
+                                <Label
+                                            Text="（補助書類とは、公共料金領収書、官公庁発行の印刷物、住民票記載事項証明書などです。）"
+                                            FontSize="13"
+                                            TextColor="Black"/>
+                                <Label
+                                            Text="※有効期限内のものでお願いします。"
+                                            FontSize="13"
+                                            TextColor="Black"/>
+                            </StackLayout>
+                        </ScrollView>
                     </Frame>
                     <ImageButton
                         Source="btn_camera"
                         BackgroundColor="Transparent"
-                        Margin="0,20"
+                        VerticalOptions="EndAndExpand"
+                        Margin="0,10"
                         x:Name="camera_btn"
                         Clicked="Camera_btn_Clicked"/>
                 </StackLayout>
-            </ScrollView>
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
